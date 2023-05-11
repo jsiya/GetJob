@@ -1,0 +1,15 @@
+C:\Users\Siya\source\repos\GetJob\bin\Debug\net6.0\GetJob.exe
+C:\Users\Siya\source\repos\GetJob\bin\Debug\net6.0\GetJob.deps.json
+C:\Users\Siya\source\repos\GetJob\bin\Debug\net6.0\GetJob.runtimeconfig.json
+C:\Users\Siya\source\repos\GetJob\bin\Debug\net6.0\GetJob.dll
+C:\Users\Siya\source\repos\GetJob\bin\Debug\net6.0\GetJob.pdb
+C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\GetJob.csproj.AssemblyReference.cache
+C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\GetJob.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\GetJob.AssemblyInfoInputs.cache
+C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\GetJob.AssemblyInfo.cs
+C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\GetJob.csproj.CoreCompileInputs.cache
+C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\GetJob.dll
+C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\refint\GetJob.dll
+C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\GetJob.pdb
+C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\GetJob.genruntimeconfig.cache
+C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\ref\GetJob.dll
