@@ -108,16 +108,6 @@ public static class ExceptionHandling
             Regex rg = new Regex(pattern);
             if (!rg.IsMatch(username))
                 throw new Exception("Username must be at least 7 character, should start with alphabet,and can contain uppercase, lowercase, numbers, underscore(_) ! ");
-        }
-        catch (Exception ex)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(ex.Message);
-            Thread.Sleep(2000);
-            return false;
-        }
-        try
-        {
             foreach (var item in db.Employees)
             {
                 if (item.Username == username) throw new Exception("This username already used!");
@@ -127,10 +117,14 @@ public static class ExceptionHandling
                 if (item.Username == username) throw new Exception("This username already used!");
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
-
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex.Message);
+            Thread.Sleep(2000);
+            return false;
         }
+       
         return true;
     }
     public static bool ForPhone(string phone)
