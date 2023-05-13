@@ -1,4 +1,6 @@
-﻿namespace GetJob.Models.AdminModel;
+﻿using GetJob.Models.DB;
+
+namespace GetJob.Models.AdminModel;
 public class Admin: Member, IAuth
 {
     //kateqoriyalar burda olsun?
@@ -13,7 +15,7 @@ public class Admin: Member, IAuth
         Password = password;
     }
 
-    public void SignIn(string username, string password)
+    public void SignIn(string username, string password, Database db)
     {
         throw new NotImplementedException();
     }

@@ -1,4 +1,5 @@
 ﻿using GetJob.Models;
+using GetJob.Models.DB;
 using GetJob.Models.UserModels;
 using GetJob.Models.VacancyModel;
 
@@ -18,8 +19,12 @@ public class Employer : User, IAuth
         Username = username;
         Password = password;
     }
+    public void SignUp(ref Database db)
+    {
 
-    public void SignIn(string username, string password)
+    }
+
+    public void SignIn(string username, string password, Database db)
     {
         throw new NotImplementedException();
     }

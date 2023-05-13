@@ -28,7 +28,7 @@ public static class AllMenues
 
     //bunun dovrunu duzelt!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //Ne kimi sigIn olunmasi ucun secim menusu
-    public static IAuth SignInMenu()
+    public static IAuth SignInMenu(ref Database db)
     {
         Console.Clear();
         IAuth member = null;
@@ -39,25 +39,25 @@ public static class AllMenues
         {
             member = new Admin();
             Admin admin = member as Admin;
-            admin.SignIn(UsernameInput(),PasswordInput());
+            admin.SignIn(UsernameInput(),PasswordInput(), db);
         }
         else if (choice == 1)
         {
             member = new Employee();
             Employee employee = member as Employee;
-            employee.SignIn(UsernameInput(), PasswordInput());
+            employee.SignIn(UsernameInput(), PasswordInput(), db);
         }
         else if (choice == 2)
         {
             member = new Employer();
             Employer employer = member as Employer;
-            employer.SignIn(UsernameInput(), PasswordInput());
+            employer.SignIn(UsernameInput(), PasswordInput(), db);
         }
         return member;
     }
 
     //Ne kimi sigUp olunmasi ucun secim menusu
-    public static IAuth SignUpMenu()
+    public static IAuth SignUpMenu(ref Database db)
     {
         Console.Clear();
         IAuth member = null;
@@ -68,19 +68,19 @@ public static class AllMenues
         {
             member = new Employee();
             Employee employee = member as Employee;
-            
+            employee.SignUp(ref db);
         }
         else if (choice == 1)
         {
-
+            member = new Employer();
+            Employer employer = member as Employer;
+            employer.SignUp(ref db);
         }
         return null;
     }
     //Guest ucun secim menusu
-    public static void GuestMenu()
+    public static void GuestMenu(ref Database db)
     {        
-        Database db = new Database();
-        db.Reader();
         Console.Clear();
         IAuth member = null;
         string[] options = {"Employees", "Employers", "SignIn", "SignUp" };
@@ -96,7 +96,7 @@ public static class AllMenues
         }
         else if (choice == 2) 
         {
-            member = SignInMenu();
+            member = SignInMenu(ref db);
             if (member == null)
             {
                 return;
@@ -105,7 +105,7 @@ public static class AllMenues
 
         else if (choice == 3) 
         {
-            member = SignUpMenu();
+            member = SignUpMenu(ref db);
             if (member == null)
             {
                 return;
@@ -116,9 +116,11 @@ public static class AllMenues
     //Esas menu olan dovr
     public static void MainMenu() 
     {
+        Database db = new Database();
+        db.Reader();
         while (true)
         {
-            GuestMenu();
+            GuestMenu(ref db);
         }
     }
 
