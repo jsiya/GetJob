@@ -7,6 +7,7 @@ namespace GetJob.Models.MenuModel;
 public static class AllMenues
 {
     //console-dan username alir
+
     public static string UsernameInput()
     {
         Console.Clear();
@@ -32,27 +33,35 @@ public static class AllMenues
         Console.Clear();
         IAuth member = null;
         string[] options = { "Admin", "Employee", "Employer", "< Back >" };
-        Logo.ShowSignInLogo();
         Menu LogInMenu = new Menu(options, 12, Console.LargestWindowHeight);
-        int choice = LogInMenu.RunMenu();
-        if (choice == 0)
+        while (true)
         {
-            member = new Admin();
-            Admin admin = member as Admin;
-            admin.SignIn(UsernameInput(),PasswordInput(), db);
+            Logo.ShowSignInLogo();
+            int choice = LogInMenu.RunMenu();
+            if (choice == 0)
+            {
+                member = new Admin();
+                Admin admin = member as Admin;
+                admin.SignIn(db);
+                break;
+            }
+            else if (choice == 1)
+            {
+                member = new Employee();
+                Employee employee = member as Employee;
+                employee.SignIn(db);
+                break;
+            }
+            else if (choice == 2)
+            {
+                member = new Employer();
+                Employer employer = member as Employer;
+                employer.SignIn(db);
+                break;
+            }
+            else if (choice == 3) break;
         }
-        else if (choice == 1)
-        {
-            member = new Employee();
-            Employee employee = member as Employee;
-            employee.SignIn(UsernameInput(), PasswordInput(), db);
-        }
-        else if (choice == 2)
-        {
-            member = new Employer();
-            Employer employer = member as Employer;
-            employer.SignIn(UsernameInput(), PasswordInput(), db);
-        }
+        //null qaytarsa guest olaraq qalacaq ele
         return member;
     }
 
@@ -118,7 +127,6 @@ public static class AllMenues
                 choice = 3;//qeydiyyatdan kecdikden sonra logine atsin
             }
         }
-
         if (choice == 3) //login
         {
             member = SignInMenu(ref db);

@@ -114,9 +114,61 @@ public class Employer : User, IAuth
         return false;
     }
 
-    public void SignIn(string username, string password, Database db)
+    public void SignIn(Database db)
     {
-        throw new NotImplementedException();
+        string username = "";
+        PrivateInput password = new();
+        string[] options = { "Username: ", "Password: ", "<Commit>", "<=Back" };
+        Menu menu = new Menu(options, 12, Console.LargestWindowHeight);
+        while (true)
+        {
+            Console.ResetColor();
+            Console.Clear();
+            menu._menuList[0] = $"Username: {username}";
+            menu._menuList[1] = $"Password: {password}";
+            Logo.ShowSignInLogo();
+            int choice = menu.RunMenu();
+            if (choice == 0)
+            {
+                Console.SetCursorPosition(72, 12);
+                username = Console.ReadLine();
+            }
+            else if (choice == 1)
+            {
+                Console.SetCursorPosition(72, 13);
+                password.InputPrivately();
+            }
+            else if (choice == 2)
+            {
+                //eger bu user varsa bu obyekte fieldleri assign edir
+                var user = db.Employers.Find(employer => employer.Username == username && employer.Password == password.GetPrivateString());
+                if (user != null)
+                {
+                    this.Id = user.Id;
+                    this.Surname = user.Surname;
+                    this.Name = user.Name;
+                    this.Age = user.Age;
+                    this.City = user.City;
+                    this.Mail = user.Mail;
+                    this.Phone = user.Phone;
+                    this.Username = user.Username;
+                    this.Password = password.GetPrivateString();
+                    this.Vacancies = user.Vacancies;
+                    this.Notifications = user.Notifications;
+                    break;
+                }
+                else
+                {
+                    Console.SetCursorPosition(57, 11);
+                    Console.WriteLine("Username doesn't exist!");
+                    Thread.Sleep(1000);
+                }
+            }
+            if (choice == 3)
+            {
+                break;
+            }
+        }
     }
 
     //vakansiya elave elesin

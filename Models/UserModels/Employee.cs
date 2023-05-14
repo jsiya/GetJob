@@ -4,6 +4,8 @@ using GetJob.Models.MenuModel;
 using GetJob.Models.Notifications;
 using GetJob.Models.UserModels;
 using MenuModel;
+using System.Numerics;
+using System.Xml.Linq;
 
 public class Employee : User, IAuth
 {
@@ -24,12 +26,60 @@ public class Employee : User, IAuth
         Notifications = new List<Notification>();
     }
 
-    public void SignIn(string username, string password, Database db)
+    public void SignIn(Database db)
     {
-        var user = db.Employees.Find(employee => employee.Username == username && employee.Password == password);
-        if (user != null)
+        string username = "";
+        PrivateInput password = new();
+        string[] options = { "Username: ", "Password: ", "<Commit>", "<=Back" };
+        Menu menu = new Menu(options, 12, Console.LargestWindowHeight);
+        while (true)
         {
-
+            Console.ResetColor();
+            Console.Clear();
+            menu._menuList[0] = $"Username: {username}";
+            menu._menuList[1] = $"Password: {password}";
+            Logo.ShowSignInLogo();
+            int choice = menu.RunMenu();
+            if (choice == 0)
+            {
+                Console.SetCursorPosition(72, 12);
+                username = Console.ReadLine();
+            }
+            else if (choice == 1)
+            {
+                Console.SetCursorPosition(72, 13);
+                password.InputPrivately();
+            }
+            else if (choice == 2)
+            {
+                //eger bu user varsa bu obyekte fieldleri assign edir
+                var user = db.Employees.Find(employee => employee.Username == username && employee.Password == password.GetPrivateString());
+                if (user != null)
+                {
+                    this.Id = user.Id;
+                    this.Surname = user.Surname;
+                    this.Name = user.Name;
+                    this.Age = user.Age;
+                    this.City = user.City;
+                    this.Mail = user.Mail;
+                    this.Phone = user.Phone;
+                    this.Username = user.Username;
+                    this.Password = password.GetPrivateString();
+                    this.Resumes = user.Resumes;
+                    this.Notifications = user.Notifications;
+                    break;
+                }
+                else
+                {
+                    Console.SetCursorPosition(57, 11);
+                    Console.WriteLine("Username doesn't exist!");
+                    Thread.Sleep(1000);
+                }
+            }
+            if (choice == 3)
+            {
+                break;
+            }
         }
     }
 
@@ -57,14 +107,14 @@ public class Employee : User, IAuth
                 Console.SetCursorPosition(72, 12);
                 name = Console.ReadLine();
                 if (!ExceptionHandling.ForName(ref name))
-                     continue;
+                    continue;
             }
             if (choice == 1)
             {
                 Console.SetCursorPosition(72, 13);
                 surname = Console.ReadLine();
                 if (!ExceptionHandling.ForSurname(ref surname))
-                     continue;
+                    continue;
             }
             if (choice == 2)
             {
