@@ -54,66 +54,66 @@ public class Employee : User, IAuth
             int choice = menu.RunMenu();
             if (choice == 0)
             {
-                Console.SetCursorPosition(70, 12);
+                Console.SetCursorPosition(72, 12);
                 name = Console.ReadLine();
-                if (!ExceptionHandling.ForName(ref name));
+                if (!ExceptionHandling.ForName(ref name))
+                     continue;
             }
-            else if (choice == 1)
+            if (choice == 1)
             {
-                do
-                {
-                    Console.SetCursorPosition(70, 13);
-                    surname = Console.ReadLine();
-                } while (!ExceptionHandling.ForSurname(ref surname));
+                Console.SetCursorPosition(72, 13);
+                surname = Console.ReadLine();
+                if (!ExceptionHandling.ForSurname(ref surname))
+                     continue;
             }
-            else if (choice == 2)
+            if (choice == 2)
             {
-                do
-                {
-                    Console.SetCursorPosition(70, 14);
-                    age = Console.ReadLine();
-                } while (!ExceptionHandling.ForAge(ref age));
+                Console.SetCursorPosition(72, 14);
+                age = Console.ReadLine();
+                if (!ExceptionHandling.ForAge(ref age))
+                    continue;
             }
-            else if (choice == 3)
+            if (choice == 3)
             {
-                do
-                {
-                    Console.SetCursorPosition(70, 15);
-                    email = Console.ReadLine();
-                } while (!ExceptionHandling.ForMail(ref email));
+                Console.SetCursorPosition(72, 15);
+                email = Console.ReadLine();
+                if (!ExceptionHandling.ForMail(ref email))
+                    continue;
             }
 
-            else if (choice == 4)
+            if (choice == 4)
             {
-                do
-                {
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.SetCursorPosition(70, 16);
-                    phone = Console.ReadLine();
-                } while (!ExceptionHandling.ForPhone(ref phone));
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.SetCursorPosition(72, 16);
+                phone = Console.ReadLine();
+                if (!ExceptionHandling.ForPhone(ref phone))
+                    continue;
             }
-            else if (choice == 5)
+            if (choice == 5)
             {
-                do
-                {
-                    Console.SetCursorPosition(70, 17);
-                    username = Console.ReadLine();
-                } while (!ExceptionHandling.ForUsername(ref username, db));
+                Console.SetCursorPosition(72, 17);
+                username = Console.ReadLine();
+                if (!ExceptionHandling.ForUsername(ref username, db))
+                    continue;
             }
-            else if (choice == 6)
+            if (choice == 6)
             {
-                do
+                Console.SetCursorPosition(72, 18);
+                password.InputPrivately();
+                if (!ExceptionHandling.ForPassword(password.GetPrivateString()))
                 {
-                    Console.SetCursorPosition(70, 18);
-                    password.InputPrivately();
-                } while (!ExceptionHandling.ForPassword(password.GetPrivateString()));
+                    password.privateString = "";
+                    continue;
+                }
             }
             else if (choice == 7 && name != "" && surname != "" && email != "" && username != "" && password.ToString() != "" && age != "" && phone != "")
             {
-                MailSender.MailVarification(email);
-                db.Employees.Add(new Employee(Int32.Parse(age), name, surname, phone, email, username, password.GetPrivateString()));
-                db.Writer();
-                return true;
+                if (MailSender.MailVarification(email))
+                {
+                    db.Employees.Add(new Employee(Int32.Parse(age), name, surname, phone, email, username, password.GetPrivateString()));
+                    db.Writer();
+                    return true;
+                }
             }
             else if (choice == 8)
             {

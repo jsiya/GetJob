@@ -26,14 +26,14 @@ public static class AllMenues
         return password;
     }
 
-    //bunun dovrunu duzelt!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //Ne kimi sigIn olunmasi ucun secim menusu
     public static IAuth SignInMenu(ref Database db)
     {
         Console.Clear();
         IAuth member = null;
         string[] options = { "Admin", "Employee", "Employer", "< Back >" };
-        Menu LogInMenu = new Menu(options, 3, 25);
+        Logo.ShowSignInLogo();
+        Menu LogInMenu = new Menu(options, 12, Console.LargestWindowHeight);
         int choice = LogInMenu.RunMenu();
         if (choice == 0)
         {
@@ -61,6 +61,7 @@ public static class AllMenues
     {
         Console.Clear();
         IAuth member = null;
+        Logo.ShowSignUpLogo();
         string[] options = { "Employee", "Employer", "< Back >" };
         Menu LogInMenu = new Menu(options, 12, Console.LargestWindowHeight);
         int choice = LogInMenu.RunMenu();

@@ -5,7 +5,7 @@ using GetJob.Models.MenuModel;
 namespace GetJob.Models.Notifications;
 public static class MailSender
 {
-    public static void MailVarification(string email)
+    public static bool MailVarification(string email)
     {
         string fromMail = "uselessmailaddress1221@gmail.com";
         string fromPassword = "xddgklkwtuffurlk";
@@ -43,9 +43,10 @@ public static class MailSender
             {
                 Console.WriteLine(ex.Message);
                 Thread.Sleep(2000);
-                continue;
+                //continue;
+                return false;
             }
-            break;
+            return true;
         }
     }
     public static void SendMail(Notification notification, string EmailAdress)

@@ -17,7 +17,7 @@ public class Admin: Member, IAuth
 
     public void SignIn(string username, string password, Database db)
     {
-        throw new NotImplementedException();
+        
     }
 
     public override string ToString()

@@ -6,14 +6,15 @@ namespace GetJob.Models.MenuModel;
 
 public static class ExceptionHandling
 {
+    //User ucun Yoxlamalarin oldugu class
     public static bool ForName(ref string name)
     {
         try
         {
             //Console.ForegroundColor = ConsoleColor.White;
-            string pattern = @"^[\p{L}'\-]+$";
+            string pattern = @"^[A-Z][a-z]*$";
             Regex rg = new Regex(pattern);
-            if (!rg.IsMatch(name)) throw new Exception("Name must contain only letters and start with uppercase!");
+            if (!rg.IsMatch(name)) throw new Exception("Name must start with uppercase!");
         }
         catch (Exception ex)
         {
@@ -32,9 +33,9 @@ public static class ExceptionHandling
         try
         {
             //Console.ForegroundColor = ConsoleColor.White;
-            string pattern = @"^[\p{L}'\-]+$";
+            string pattern = @"^[A-Z][a-z]*$";
             Regex rg = new Regex(pattern);
-            if (!rg.IsMatch(surname)) throw new Exception("Surname must contain only letters and start with uppercase!");
+            if (!rg.IsMatch(surname)) throw new Exception("Surname must start with uppercase!");
         }
         catch (Exception ex)
         {
@@ -95,7 +96,8 @@ public static class ExceptionHandling
             string pattern = "^[A-Za-z][A-Za-z0-9_]{7,29}$";
             Regex rg = new Regex(pattern);
             if (!rg.IsMatch(username))
-                throw new Exception("Username must be at least 7 character, should start with alphabet,and can contain uppercase, lowercase, numbers, underscore(_) ! ");
+                throw new Exception("Username must be at least 7 character, should start with alphabet,and can contain uppercase, lowercase, numbers, underscore(_)!");
+            //bu username-de userin olub-olmamasi ucun yoxlanis
             foreach (var item in db.Employees)
             {
                 if (item.Username == username) throw new Exception("This username already used!");

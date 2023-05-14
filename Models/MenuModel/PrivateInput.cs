@@ -3,11 +3,11 @@
 public class PrivateInput
 {
 
-    private string _privateString = "";
+    public string privateString = "";
 
     public string GetPrivateString()
     {
-        return _privateString;
+        return privateString;
     }
 
     public void InputPrivately()
@@ -44,7 +44,7 @@ public class PrivateInput
             }
         } while (true);
 
-        _privateString = tempString;
+        privateString = tempString;
         tempString = null;
         Console.WriteLine();
 
@@ -53,7 +53,7 @@ public class PrivateInput
     public override string ToString()
     {
         string pass = "";
-        foreach (var item in _privateString)
+        foreach (var item in privateString)
         {
             pass += "*";
         }
