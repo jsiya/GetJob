@@ -3,7 +3,7 @@
 public class PrivateInput
 {
 
-    private string _privateString;
+    private string _privateString = "";
 
     public string GetPrivateString()
     {
@@ -12,8 +12,6 @@ public class PrivateInput
 
     public void InputPrivately()
     {
-        Console.Write("Enter Password: ");
-
         string tempString = "";
         do
         {
@@ -51,5 +49,14 @@ public class PrivateInput
         Console.WriteLine();
 
         return;
+    }
+    public override string ToString()
+    {
+        string pass = "";
+        foreach (var item in _privateString)
+        {
+            pass += "*";
+        }
+        return pass;
     }
 }

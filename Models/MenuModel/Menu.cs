@@ -6,7 +6,7 @@ public class Menu
 {
     //private string _prompt = "";
     private readonly string[] _options;
-    private readonly List<string> _menuList;
+    public  List<string> _menuList;
     private int _currentSelection;
     private int _drawMenuColumnPos;
     private readonly int _drawMenuRowPos;

@@ -13,3 +13,6 @@ C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\refint\GetJob.dll
 C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\GetJob.pdb
 C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\GetJob.genruntimeconfig.cache
 C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\ref\GetJob.dll
+C:\Users\Siya\source\repos\GetJob\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Siya\source\repos\GetJob\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Siya\source\repos\GetJob\obj\Debug\net6.0\GetJob.csproj.CopyComplete

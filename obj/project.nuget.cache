@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Tp5LXwPRu4WdWsW8T1AqkncG5aSSwXxUvtVVcgC1mFK5QadegGiQJ1nrjmUDJtw/qD9y+U2WRZD31cSOleTLUA==",
+  "dgSpecHash": "+l+lMAFFv+UqO5Si7UY1+p34eDFpJSV7aQKgeknorPC8wfMley+c1bMgAhN1rEWJT2uwH08HSgLOrGSiBqGuZA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Siya\\source\\repos\\GetJob\\GetJob.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Siya\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
+    "C:\\Users\\Siya\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

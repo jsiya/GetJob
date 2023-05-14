@@ -19,9 +19,9 @@ public class Employer : User, IAuth
         Username = username;
         Password = password;
     }
-    public void SignUp(ref Database db)
+    public bool SignUp(ref Database db)
     {
-
+        return false;
     }
 
     public void SignIn(string username, string password, Database db)

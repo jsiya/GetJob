@@ -1,72 +1,57 @@
 ﻿using GetJob.Models.DB;
 using System.Net.Mail;
-using System.Numerics;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 
 namespace GetJob.Models.MenuModel;
 
 public static class ExceptionHandling
 {
-    public static bool ForName(string name)
+    public static bool ForName(ref string name)
     {
         try
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            //if (string.IsNullOrEmpty(name)) { throw new NullReferenceException("Name is empty!"); }
+            //Console.ForegroundColor = ConsoleColor.White;
             string pattern = @"^[\p{L}'\-]+$";
             Regex rg = new Regex(pattern);
             if (!rg.IsMatch(name)) throw new Exception("Name must contain only letters and start with uppercase!");
         }
-        //catch (NullReferenceException ex)
-        //{
-        //    Console.ForegroundColor = ConsoleColor.Red;
-        //    Console.WriteLine(ex.Message);
-        //    Thread.Sleep(2000);
-        //    return false;
-        //}
         catch (Exception ex)
         {
             Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(70, 12);
             Console.WriteLine(ex.Message);
+            name = "";
             Thread.Sleep(2000);
             return false;
         }
         return true;
     }
 
-    public static bool ForSurname(string surname)
+    public static bool ForSurname(ref string surname)
     {
         try
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            //if (string.IsNullOrEmpty(surname)) { throw new NullReferenceException("Surname is empty!"); }
-            //if (!surname.All(char.IsLetter)) throw new Exception("Surname must contain only letters");
+            //Console.ForegroundColor = ConsoleColor.White;
             string pattern = @"^[\p{L}'\-]+$";
             Regex rg = new Regex(pattern);
             if (!rg.IsMatch(surname)) throw new Exception("Surname must contain only letters and start with uppercase!");
         }
-        //catch (NullReferenceException ex)
-        //{
-        //    Console.ForegroundColor = ConsoleColor.Red;
-        //    Console.WriteLine(ex.Message);
-        //    Thread.Sleep(2000);
-        //    return false;
-        //}
         catch (Exception ex)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(ex.Message);
+            Console.SetCursorPosition(70, 13);
+            Console.Write(ex.Message);
             Thread.Sleep(2000);
+            surname = "";
             return false;
         }
         return true;
     }
-    public static bool ForMail(string email)
+    public static bool ForMail(ref string email)
     {
         try
         {
-            Console.ForegroundColor = ConsoleColor.White;
+            //Console.ForegroundColor = ConsoleColor.White;
             var mail = new MailAddress(email);
             bool isValidEmail = mail.Host.Contains(".");
             if (!isValidEmail)
@@ -75,7 +60,9 @@ public static class ExceptionHandling
         catch (Exception ex)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(ex.Message);
+            Console.SetCursorPosition(70, 15);
+            Console.Write(ex.Message);
+            email = "";
             return false;
         }
         return true;
@@ -93,13 +80,14 @@ public static class ExceptionHandling
         catch (Exception ex)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(ex.Message);
+            Console.SetCursorPosition(70, 18);
+            Console.Write(ex.Message);
             Thread.Sleep(2000);
             return false;
         }
         return true;
     }
-    public static bool ForUsername(string username, Database db)
+    public static bool ForUsername(ref string username, Database db)
     {
         try
         {
@@ -120,14 +108,16 @@ public static class ExceptionHandling
         catch (Exception ex)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(ex.Message);
+            Console.SetCursorPosition(70, 17);
+            Console.Write(ex.Message);
             Thread.Sleep(2000);
+            username = "";
             return false;
         }
        
         return true;
     }
-    public static bool ForPhone(string phone)
+    public static bool ForPhone(ref string phone)
     {
         try
         {
@@ -143,13 +133,15 @@ public static class ExceptionHandling
         catch (Exception ex)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(ex.Message);
+            Console.SetCursorPosition(70, 16);
+            Console.Write(ex.Message);
             Thread.Sleep(2000);
+            phone = "";
             return false;
         }
         return true;
     }
-    public static bool ForCity(string city)
+    public static bool ForCity(ref string city)
     {
         try
         {
@@ -161,15 +153,16 @@ public static class ExceptionHandling
         catch (Exception ex)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(ex.Message);
+            Console.Write(ex.Message);
             Thread.Sleep(2000);
+            city = "";
             return false;
         }
         return true;
     }
-    public static bool ForAge(string age)
+    public static bool ForAge(ref string age)
     {
-        Console.ForegroundColor = ConsoleColor.White;
+        //Console.ForegroundColor = ConsoleColor.White;
         try
         {
             int age_;
@@ -182,8 +175,10 @@ public static class ExceptionHandling
         catch (Exception ex)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(ex.Message);
+            Console.SetCursorPosition(70, 14);
+            Console.Write(ex.Message);
             Thread.Sleep(2000);
+            age = "";
             return false;
         }
         return true;

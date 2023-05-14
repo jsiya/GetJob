@@ -1,5 +1,6 @@
 ﻿using System.Net.Mail;
 using System.Net;
+using GetJob.Models.MenuModel;
 
 namespace GetJob.Models.Notifications;
 public static class MailSender
@@ -18,6 +19,10 @@ public static class MailSender
                 Random random = new Random();
                 int check = random.Next(100000, 1000000);
 
+                Logo.ShowVarificationLogo();
+                Console.SetCursorPosition(40, 15);
+                Console.Write("Enter the new 6-digit code:");
+
                 MailMessage message = new MailMessage();
                 message.From = new MailAddress(fromMail);
                 message.Subject = "Verification code";
@@ -30,8 +35,7 @@ public static class MailSender
                     EnableSsl = true,
                 };
                 smtpClient.Send(message);
-
-                Console.WriteLine("Enter the new 6-digit code:");
+                Console.SetCursorPosition(70, 15);
                 string code = Console.ReadLine();
                 if (code != check.ToString()) throw new Exception("Code is incorrect!");
             }
