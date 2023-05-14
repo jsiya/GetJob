@@ -82,4 +82,27 @@ public static class Logo
                                                                                                    
 ");
     }
+    public static void ShowEmployersLogo()
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine(@"
+                                              ___            _                     
+                                             | __|_ __  _ __| |___ _  _ ___ _ _ ___
+                                             | _|| '  \| '_ | / _ | || / -_| '_(_-<
+                                             |___|_|_|_| .__|_\___/\_, \___|_| /__/
+                                                       |_|         |__/                                                                       
+");
+    }
+
+    public static void ShowEmployeesLogo()
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine(@"
+                                              ___            _                     
+                                             | __|_ __  _ __| |___ _  _ ___ ___ ___
+                                             | _|| '  \| '_ | / _ | || / -_/ -_(_-<
+                                             |___|_|_|_| .__|_\___/\_, \___\___/__/
+                                                       |_|         |__/                                                          
+");
+    }
 }

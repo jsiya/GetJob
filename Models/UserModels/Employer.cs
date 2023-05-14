@@ -24,6 +24,11 @@ public class Employer : User, IAuth
         Vacancies = new List<Vacancy>();
         Notifications = new List<Notification>();
     }
+
+    public void ShowEmployer()
+    {
+
+    }
     public bool SignUp(ref Database db)
     {
         string name = "", surname = "", email = "", username = "", phone = "", age = "";

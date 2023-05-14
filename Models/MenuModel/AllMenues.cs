@@ -6,25 +6,22 @@ namespace GetJob.Models.MenuModel;
 
 public static class AllMenues
 {
-    //console-dan username alir
-
-    public static string UsernameInput()
+    //Butun userleri gosteren menu
+    public static void AllEmployersMenu(ref Database db)
     {
-        Console.Clear();
-        string username;
-        Console.Write("Enter Username: ");
-        username = Console.ReadLine();
-        return username;
-    }
+        List<string> users = db.Employers.Select(x => x.Username).ToList();
+        users.Add("<=Back");
 
-    //consoledan passwordu alir (password gorsenmir)
-    public static string PasswordInput()
-    {
-        //PrivateInput password-u **** kimi gostermek ucun
-        PrivateInput privateInput = new PrivateInput();
-        privateInput.InputPrivately();
-        string password = privateInput.GetPrivateString();
-        return password;
+        Menu menu = new Menu(users.ToArray(), 12, Console.LargestWindowHeight);
+        int choice;
+        while (true)
+        {
+            Console.Clear();
+            Logo.ShowEmployersLogo();
+            choice = menu.RunMenu();
+            if (choice == users.Count - 1) break;
+            db.Employers[choice].ShowEmployer();
+        }
     }
 
     //Ne kimi sigIn olunmasi ucun secim menusu
@@ -91,38 +88,21 @@ public static class AllMenues
 
     //Guest ucun secim menusu
     public static void GuestMenu(ref Database db, ref IAuth member)
-    {        
-        string[] options = {"Employees", "Employers", "SignUp", "SignIn" };
+    {
+        string[] options = { "Employees", "Employers", "SignUp", "SignIn" };
         Menu LogInMenu = new Menu(options, 12, Console.LargestWindowHeight);
         int choice = LogInMenu.RunMenu();
-        if (choice == 0) 
-        { 
-            //Eger emplyee-lere baxmaga daxil olubsa
-            if(member == null)//guest kimi
-            {
+        if (choice == 0)
+        {
 
-            }
-            else//user kimi
-            {
-
-            }
-        
         }
-        else if (choice == 1) 
-        { 
-            if(member == null)//guest kimi
-            {
-
-            }
-            else//user kimi
-            {
-
-            }
-        
+        else if (choice == 1)
+        {
+            AllEmployersMenu(ref db);
         }
         else if (choice == 2) //qeydiyyat
         {
-            if(SignUpMenu(ref db))
+            if (SignUpMenu(ref db))
             {
                 choice = 3;//qeydiyyatdan kecdikden sonra logine atsin
             }
@@ -138,7 +118,7 @@ public static class AllMenues
     }
 
     //Esas menu olan dovr
-    public static void MainMenu() 
+    public static void MainMenu()
     {
         IAuth member = null;
         //proqram baslayanda jsondan database-e oxunsun

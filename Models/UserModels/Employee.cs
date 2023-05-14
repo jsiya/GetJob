@@ -25,7 +25,7 @@ public class Employee : User, IAuth
         Resumes = new List<Resume>();
         Notifications = new List<Notification>();
     }
-
+    
     public void SignIn(Database db)
     {
         string username = "";
