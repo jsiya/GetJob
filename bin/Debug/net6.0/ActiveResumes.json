@@ -11,5 +11,31 @@
     "Mail": "siajabbarova@gmail.com",
     "Username": "asmar_jb",
     "Password": "Qwerty123*"
+  },
+  {
+    "Vacancies": [],
+    "Age": 25,
+    "Name": "Sima",
+    "Surname": "Maniyeva",
+    "City": "",
+    "Phone": "0124543102",
+    "Notifications": [],
+    "Id": "00000000-0000-0000-0000-000000000000",
+    "Mail": "simaniyeva03@gmail.com",
+    "Username": "sim__ma03",
+    "Password": "Sima123@"
+  },
+  {
+    "Vacancies": [],
+    "Age": 20,
+    "Name": "Ali",
+    "Surname": "Ibrahimov",
+    "City": "",
+    "Phone": "0552005424",
+    "Notifications": [],
+    "Id": "00000000-0000-0000-0000-000000000000",
+    "Mail": "aliibrah30@gmail.com",
+    "Username": "alibra___",
+    "Password": "Alibra123*"
   }
 ]

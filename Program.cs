@@ -1,5 +1,6 @@
 ﻿using GetJob.Models.DB;
 using GetJob.Models.MenuModel;
+using GetJob.Models.VacancyModel;
 
 namespace GetJob;
 public class Program
@@ -8,5 +9,6 @@ public class Program
     {
 
         AllMenues.MainMenu();
+
     }
 }

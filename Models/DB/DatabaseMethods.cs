@@ -1,8 +1,7 @@
 ﻿using GetJob.Models.AdminModel;
-using System.Text.Json;
-using Newtonsoft.Json;
-using GetJob.Models.VacancyModel;
 using GetJob.Models.UserModels;
+using GetJob.Models.VacancyModel;
+using System.Text.Json;
 
 namespace GetJob.Models.DB;
 

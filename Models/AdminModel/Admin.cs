@@ -5,10 +5,11 @@ using MenuModel;
 namespace GetJob.Models.AdminModel;
 public class Admin: Member, IAuth
 {
-    public Admin() { }
+    public Admin() {
+        Id = new Guid();
+    }
     public Admin(string email, string username, string password)
     {
-        Id = new Guid();
         Mail = email;
         Username = username;
         Password = password;

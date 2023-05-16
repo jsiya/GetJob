@@ -10,7 +10,7 @@ using System.Xml.Linq;
 public class Employee : User, IAuth
 {
     public List<Resume> Resumes { get; set; }
-    public Employee() { }
+    public Employee() { Id = new Guid(); }
     public Employee(int age, string name, string surname, string phone, string mail, string username, string password)
     {
         Id = new Guid();

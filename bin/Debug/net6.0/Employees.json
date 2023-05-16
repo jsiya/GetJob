@@ -24,5 +24,44 @@
     "Mail": "siajabbarova@gmail.com",
     "Username": "cabba_ug95",
     "Password": "Qwerty123\u0026"
+  },
+  {
+    "Resumes": [],
+    "Age": 20,
+    "Name": "Natiq",
+    "Surname": "Askerov",
+    "City": "",
+    "Phone": "0806757865",
+    "Notifications": [],
+    "Id": "00000000-0000-0000-0000-000000000000",
+    "Mail": "natiqesgerov3011@gmail.com",
+    "Username": "natiq12_",
+    "Password": "Natiq123*"
+  },
+  {
+    "Resumes": [],
+    "Age": 20,
+    "Name": "Kamal",
+    "Surname": "Rehimov",
+    "City": "",
+    "Phone": "0702339993",
+    "Notifications": [],
+    "Id": "00000000-0000-0000-0000-000000000000",
+    "Mail": "rahimovkamal723@gmail.com",
+    "Username": "kamalrahim",
+    "Password": "Kamal123@"
+  },
+  {
+    "Resumes": [],
+    "Age": 21,
+    "Name": "Rustem",
+    "Surname": "Hesenli",
+    "City": "",
+    "Phone": "0555551212",
+    "Notifications": [],
+    "Id": "00000000-0000-0000-0000-000000000000",
+    "Mail": "rustamh2006@gmail.com",
+    "Username": "rustamhesen",
+    "Password": "Salam123@"
   }
 ]

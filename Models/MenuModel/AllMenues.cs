@@ -7,7 +7,7 @@ namespace GetJob.Models.MenuModel;
 public static class AllMenues
 {
     //Butun userleri gosteren menu
-    public static void AllEmployersMenu(ref Database db)
+    public static void AllEmployersMenu(ref Database db, ref IAuth user)
     {
         List<string> users = db.Employers.Select(x => x.Username).ToList();
         users.Add("<=Back");
@@ -20,7 +20,7 @@ public static class AllMenues
             Logo.ShowEmployersLogo();
             choice = menu.RunMenu();
             if (choice == users.Count - 1) break;
-            db.Employers[choice].ShowEmployer();
+            
         }
     }
 
@@ -98,7 +98,7 @@ public static class AllMenues
         }
         else if (choice == 1)
         {
-            AllEmployersMenu(ref db);
+            AllEmployersMenu(ref db, ref member);
         }
         else if (choice == 2) //qeydiyyat
         {
@@ -117,6 +117,29 @@ public static class AllMenues
         }
     }
 
+    public static void HomePageMenu(ref Database db, ref IAuth member)
+    {
+        string[] options = { "Employees", "Employers", "Profile", "LogOut" };
+        Menu LogInMenu = new Menu(options, 12, Console.LargestWindowHeight);
+        int choice = LogInMenu.RunMenu();
+        if (choice == 0)
+        {
+
+        }
+        else if (choice == 1)
+        {
+            AllEmployersMenu(ref db, ref member);
+        }
+        else if (choice == 2) //profile
+        {
+            
+        }
+        if (choice == 3) //logout
+        {
+            member = null;
+        }
+    }
+
     //Esas menu olan dovr
     public static void MainMenu()
     {
@@ -129,7 +152,10 @@ public static class AllMenues
             Console.Clear();
             //GetJob Logosu
             Logo.ShowLogo();
-            GuestMenu(ref db, ref member);
+            if(member == null)
+                GuestMenu(ref db, ref member);
+            else
+                HomePageMenu(ref db, ref member);
         }
     }
 
