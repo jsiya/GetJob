@@ -9,5 +9,6 @@ public abstract class User: Member
     public string Surname { get; set; }
     public string City { get; set; }
     public string Phone { get; set; }
+    public int ViewCount { get; set; }
     public List<Notification> Notifications { get; set; }
 }

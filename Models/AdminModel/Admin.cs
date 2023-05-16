@@ -1,18 +1,20 @@
 ﻿using GetJob.Models.DB;
 using GetJob.Models.MenuModel;
+using GetJob.Models.Notifications;
 using MenuModel;
 
 namespace GetJob.Models.AdminModel;
 public class Admin: Member, IAuth
 {
-    public Admin() {
-        Id = new Guid();
-    }
-    public Admin(string email, string username, string password)
+    public List<Notification> Notifications { get; set; }
+    public Admin() { }
+    public Admin(string email, string username, string password, List<Notification> notifications)
     {
+        Id = Guid.NewGuid();
         Mail = email;
         Username = username;
         Password = password;
+        Notifications = notifications;
     }
 
     public void SignIn(Database db)

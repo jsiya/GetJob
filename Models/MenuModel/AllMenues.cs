@@ -1,13 +1,14 @@
 ﻿using GetJob.Models.AdminModel;
 using GetJob.Models.DB;
+using GetJob.Models.Notifications;
 using MenuModel;
 
 namespace GetJob.Models.MenuModel;
 
 public static class AllMenues
 {
-    //Butun userleri gosteren menu
-    public static void AllEmployersMenu(ref Database db, ref IAuth user)
+    //Butun Employerleri gosteren menu
+    public static void AllEmployersMenu(ref Database db, ref Member user)
     {
         List<string> users = db.Employers.Select(x => x.Username).ToList();
         users.Add("<=Back");
@@ -20,16 +21,93 @@ public static class AllMenues
             Logo.ShowEmployersLogo();
             choice = menu.RunMenu();
             if (choice == users.Count - 1) break;
-            
+        }
+    }
+
+    //Butun Employeeleri gosteren menu
+    public static void AllEmployeesMenu(ref Database db, ref Member user)
+    {
+        List<string> users = db.Employees.Select(x => x.Username).ToList();
+        users.Add("<=Back");
+
+        Menu menu = new Menu(users.ToArray(), 12, Console.LargestWindowHeight);
+        int choice;
+        while (true)
+        {
+            Console.Clear();
+            Logo.ShowEmployeesLogo();
+            choice = menu.RunMenu();
+            if (choice == users.Count - 1) break;
+        }
+    }
+
+    //butun vakansiyalar
+    public static void AllVacanciesMenu(ref Database db, ref Member user)
+    {
+        List<string> users = db.ActiveVacancies.Where(vacancy => vacancy.Showable).Select(vacancy => vacancy.Title).ToList();
+        users.Add("<=Back");
+
+        Menu menu = new Menu(users.ToArray(), 12, Console.LargestWindowHeight);
+        int choice;
+        while (true)
+        {
+            Console.Clear();
+            Logo.ShowVacanciesLogo();
+            choice = menu.RunMenu();
+            if (choice == users.Count - 1) break;
+
+        }
+    }
+
+    //notifler menusu
+    public static void AllNotificatioMenu(Database db, Member user) //BU ERROR VERIR BAX!!!!!!!!!!!!!!!!!!!!!!!!!!
+    {
+    //    List<Notification> notifs = new();
+    //    //gelen userin tipine gore db-den hemin uygun listedi notificationlari liste yigilir
+    //    if(user is Admin)
+    //    {
+    //        notifs = (List<Notification>)db.Admins.Where(admin => admin.Id == user.Id).Select(admin => admin.Notifications);
+    //    }
+    //    if (user is Employee)
+    //    {
+    //        notifs = (List<Notification>)db.Employees.Where(employee => employee.Id == user.Id).Select(employee => employee.Notifications);
+    //    }
+    //    if (user is Employer)
+    //    {
+    //        notifs = (List<Notification>)db.Employers.Where(employer => employer.Id == user.Id).Select(employer => employer.Notifications);
+    //    }
+    //    //yigilan notification-larin toStringlerini menyu ucun optionsa yigilir
+    //    string[] options = new string[] { "<=Back"};
+    //    if(notifs!=null)
+    //        options = (string[])options.Concat(notifs.Select(x=>x.ToString()).ToArray());
+    //    Menu menu = new Menu(options, 12, Console.LargestWindowHeight);
+    //    int choice = menu.RunMenu();
+    //    while (true)
+    //    {
+    //        if(choice == 0) break;
+    //    }
+    }
+
+    //profile
+    public static void ProfileMenu(ref Database db, ref Member user)
+    {
+        Console.Clear();
+        string[] options = { "Create Resume", "Show My Resumes", "Update Personal Info", "< Back >" };
+        Menu menu = new Menu(options, 12, Console.LargestWindowHeight);
+        int choice;
+        while (true)
+        {
+            Logo.ShowProfileLogo();
+            choice = menu.RunMenu();
         }
     }
 
     //Ne kimi sigIn olunmasi ucun secim menusu
-    public static IAuth SignInMenu(ref Database db)
+    public static Member SignInMenu(ref Database db)
     {
         Console.Clear();
-        IAuth member = null;
-        string[] options = { "Admin", "Employee", "Employer", "< Back >" };
+        Member member = null;
+        string[] options = { " Admin ", "Employee", "Employer", "< Back >" };
         Menu LogInMenu = new Menu(options, 12, Console.LargestWindowHeight);
         while (true)
         {
@@ -85,29 +163,33 @@ public static class AllMenues
         }
         return false;
     }
-
+  
     //Guest ucun secim menusu
-    public static void GuestMenu(ref Database db, ref IAuth member)
+    public static void GuestMenu(ref Database db, ref Member member)
     {
-        string[] options = { "Employees", "Employers", "SignUp", "SignIn" };
+        string[] options = { "Employees", "Employers", "Vacanies", " SignUp  ", " SignIn  " };
         Menu LogInMenu = new Menu(options, 12, Console.LargestWindowHeight);
         int choice = LogInMenu.RunMenu();
-        if (choice == 0)
+        if (choice == 0)//employees
         {
-
+            AllEmployeesMenu(ref db, ref member);
         }
-        else if (choice == 1)
+        else if (choice == 1)//employerler
         {
             AllEmployersMenu(ref db, ref member);
         }
-        else if (choice == 2) //qeydiyyat
+        else if (choice == 2) //vakansiyalar
+        {
+            AllVacanciesMenu(ref db, ref member);
+        }
+        else if(choice == 3)//qeydiyyat
         {
             if (SignUpMenu(ref db))
             {
                 choice = 3;//qeydiyyatdan kecdikden sonra logine atsin
             }
         }
-        if (choice == 3) //login
+        if (choice == 4) //login
         {
             member = SignInMenu(ref db);
             if (member == null)
@@ -117,24 +199,41 @@ public static class AllMenues
         }
     }
 
-    public static void HomePageMenu(ref Database db, ref IAuth member)
+    //admin menu
+    public static void AdminMenu(ref Database db, ref Member member)
     {
-        string[] options = { "Employees", "Employers", "Profile", "LogOut" };
+        string[] options = {"All Employers","All Employees", "Deactive Vacancies", "Deactive Resumes", "Notifications",  "  < LogOut >  " };
+        Menu menu = new Menu(options, 12, Console.LargestWindowHeight);
+        int choice = menu.RunMenu();
+    }
+
+    //userin menu
+    public static void UserMenu(ref Database db, ref Member member)
+    {
+        string[] options = { "Employees", "Employers", "Vacancies", "Profile", "Notifications", "LogOut" };
         Menu LogInMenu = new Menu(options, 12, Console.LargestWindowHeight);
         int choice = LogInMenu.RunMenu();
         if (choice == 0)
         {
-
+            AllEmployeesMenu(ref db, ref member);
         }
         else if (choice == 1)
         {
             AllEmployersMenu(ref db, ref member);
         }
-        else if (choice == 2) //profile
+        else if (choice == 2) //vacancies
         {
-            
+            AllVacanciesMenu(ref db, ref member);
         }
-        if (choice == 3) //logout
+        else if( choice == 3)//profile
+        {
+            ProfileMenu(ref db, ref member);
+        }
+        else if(choice == 4)//notification
+        {
+            AllNotificatioMenu(db, member);
+        }
+        if (choice == 5) //logout
         {
             member = null;
         }
@@ -143,7 +242,7 @@ public static class AllMenues
     //Esas menu olan dovr
     public static void MainMenu()
     {
-        IAuth member = null;
+        Member member = null;
         //proqram baslayanda jsondan database-e oxunsun
         Database db = new Database();
         db.Reader();
@@ -155,7 +254,12 @@ public static class AllMenues
             if(member == null)
                 GuestMenu(ref db, ref member);
             else
-                HomePageMenu(ref db, ref member);
+            {
+                if(member is Admin)
+                    AdminMenu(ref db, ref member);
+                else
+                    UserMenu(ref db, ref member);
+            }
         }
     }
 

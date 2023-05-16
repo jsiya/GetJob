@@ -9,10 +9,10 @@ using MenuModel;
 public class Employer : User, IAuth
 {
     public List<Vacancy> Vacancies { get; set; }    
-    public Employer() { Id = Guid.NewGuid(); }
+    public Employer() { }
     public Employer(int age, string name, string surname, string phone, string mail, string username, string password)
     {
-        Id = new Guid();
+        Id = Guid.NewGuid();
         Age = age;
         Name = name;
         Surname = surname;

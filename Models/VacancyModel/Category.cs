@@ -5,7 +5,7 @@ public record struct Category
     public string Name { get; set; }
     public Category(string name)
     {
-        Id = new Guid();
+        Id = Guid.NewGuid();
         Name = name;
     }
 }

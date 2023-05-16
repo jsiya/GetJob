@@ -105,4 +105,53 @@ public static class Logo
                                                        |_|         |__/                                                          
 ");
     }
+
+    public static void ShowNotificationsLogo()
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine(@"
+                                           __      _   _  __ _           _   _                 
+                                        /\ \ \___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  ___ 
+                                       /  \/ / _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \/ __|
+                                      / /\  / (_) | |_| |  _| | (_| (_| | |_| | (_) | | | \__ \
+                                      \_\ \/ \___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|___/
+                                                                                                          
+");
+    }
+
+    public static void ShowNewResumeLogo()
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine(@"
+                                            __                  __                                
+                                         /\ \ \_____      __   /__\ ___  ___ _   _ _ __ ___   ___ 
+                                        /  \/ / _ \ \ /\ / /  / \/// _ \/ __| | | | '_ ` _ \ / _ \
+                                       / /\  /  __/\ V  V /  / _  \  __/\__ \ |_| | | | | | |  __/
+                                       \_\ \/ \___| \_/\_/   \/ \_/\___||___/\__,_|_| |_| |_|\___|
+                                                                                                                                                                          
+");
+    }
+    public static void ShowNewVacancyLogo()
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine(@"
+                                           __                                                      
+                                        /\ \ \_____      __ /\   /\__ _  ___ __ _ _ __   ___ _   _ 
+                                       /  \/ / _ \ \ /\ / / \ \ / / _` |/ __/ _` | '_ \ / __| | | |
+                                      / /\  /  __/\ V  V /   \ V / (_| | (_| (_| | | | | (__| |_| |
+                                      \_\ \/ \___| \_/\_/     \_/ \__,_|\___\__,_|_| |_|\___|\__, |
+                                                                                             |___/ 
+                                                                                                                                                                          
+");
+    }
+    public static void ShowProfileLogo()
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine(@"
+                                                     ____ ____ ____ ____ ____ ____ ____ 
+                                                    ||P |||r |||o |||f |||i |||l |||e ||
+                                                    ||__|||__|||__|||__|||__|||__|||__||
+                                                    |/__\|/__\|/__\|/__\|/__\|/__\|/__\|                                                                                                                                                         
+");
+    }
 }

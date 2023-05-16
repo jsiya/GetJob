@@ -4,8 +4,6 @@ using GetJob.Models.MenuModel;
 using GetJob.Models.Notifications;
 using GetJob.Models.UserModels;
 using MenuModel;
-using System.Numerics;
-using System.Xml.Linq;
 
 public class Employee : User, IAuth
 {
@@ -13,7 +11,7 @@ public class Employee : User, IAuth
     public Employee() { Id = new Guid(); }
     public Employee(int age, string name, string surname, string phone, string mail, string username, string password)
     {
-        Id = new Guid();
+        Id = Guid.NewGuid();
         Age = age;
         Name = name;
         Surname = surname;

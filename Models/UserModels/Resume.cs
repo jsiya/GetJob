@@ -8,6 +8,9 @@ public class Resume
     public string LinkedIn { get; set; }
     public List<string> Education { get; set; }
     public List<string> Skills { get; set; }
+    public int ViewCount { get; set; }
+    public bool Showable { get; set; }
+    public bool IsActive { get; set; }
     public List<KeyValuePair<string, LanguageLevelInfo>> Languages { get; set; }
     public List<string> Certificates { get; set; }
     //Experience ilk pair sirket ve vezifeni, ikinci pair baslama ve bitme tarixi
@@ -15,7 +18,7 @@ public class Resume
     public Resume() { }
     public Resume(Guid employeeId, string profession, string userName, string linkedIn, List<string> education, List<string> skills, List<KeyValuePair<string, LanguageLevelInfo>> languages, List<string> certificates, List<KeyValuePair<KeyValuePair<string, string>, KeyValuePair<DateOnly, DateOnly>>> experiences)
     {
-        Id = new Guid();
+        Id = Guid.NewGuid();
         EmployeeId = employeeId;
         Profession = profession;
         UserName = userName;
@@ -25,6 +28,9 @@ public class Resume
         Languages = languages;
         Certificates = certificates;
         Experiences = experiences;
+        ViewCount = 0;
+        Showable = false;
+        IsActive = false;
     }
 
     //toString
