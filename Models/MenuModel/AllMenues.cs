@@ -1,7 +1,10 @@
 ﻿using GetJob.Models.AdminModel;
 using GetJob.Models.DB;
 using GetJob.Models.Notifications;
+using GetJob.Models.UserModels;
 using MenuModel;
+using System.Numerics;
+using System.Xml.Linq;
 
 namespace GetJob.Models.MenuModel;
 
@@ -60,34 +63,45 @@ public static class AllMenues
     }
 
     //notifler menusu
-    public static void AllNotificatioMenu(Database db, Member user) //BU ERROR VERIR BAX!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public static void AllNotificatioMenu(Database db, Member user) 
     {
-    //    List<Notification> notifs = new();
-    //    //gelen userin tipine gore db-den hemin uygun listedi notificationlari liste yigilir
-    //    if(user is Admin)
-    //    {
-    //        notifs = (List<Notification>)db.Admins.Where(admin => admin.Id == user.Id).Select(admin => admin.Notifications);
-    //    }
-    //    if (user is Employee)
-    //    {
-    //        notifs = (List<Notification>)db.Employees.Where(employee => employee.Id == user.Id).Select(employee => employee.Notifications);
-    //    }
-    //    if (user is Employer)
-    //    {
-    //        notifs = (List<Notification>)db.Employers.Where(employer => employer.Id == user.Id).Select(employer => employer.Notifications);
-    //    }
-    //    //yigilan notification-larin toStringlerini menyu ucun optionsa yigilir
-    //    string[] options = new string[] { "<=Back"};
-    //    if(notifs!=null)
-    //        options = (string[])options.Concat(notifs.Select(x=>x.ToString()).ToArray());
-    //    Menu menu = new Menu(options, 12, Console.LargestWindowHeight);
-    //    int choice = menu.RunMenu();
-    //    while (true)
-    //    {
-    //        if(choice == 0) break;
-    //    }
+        List<Notification> notifs = new();
+        //gelen userin tipine gore db-den hemin uygun listedi notificationlari liste yigilir
+        if(user is Admin)
+        {
+            notifs = (List<Notification>)db.Admins.Where(admin => admin.Id == user.Id).Select(admin => admin.Notifications);
+        }
+        if (user is Employee)
+        {
+            notifs = (List<Notification>)db.Employees.Where(employee => employee.Id == user.Id).Select(employee => employee.Notifications);
+        }
+        if (user is Employer)
+        {
+            notifs = db.Employers.FirstOrDefault(employer => employer.Id == user.Id).Notifications;
+        }
+        //yigilan notification-larin toStringlerini menyu ucun optionsa yigilir
+        List<string> options = new() { "<=Back"};
+        if(notifs!=null)
+        {
+            options.AddRange(notifs.Select(notif=>notif.ToString()));
+        }
+        Menu menu = new Menu(options.ToArray(), 12, Console.LargestWindowHeight);
+        while (true)
+        {
+            int choice = menu.RunMenu();
+            if (choice == 0) break;
+        }
     }
 
+
+    public static void CreateVacancyMenu(ref Database db,ref Member user)
+    {
+
+    }
+    public static void UpdatePersonalInfoMenu(ref Database db,ref Member user)
+    {
+
+    }
     //profile
     public static void ProfileMenu(ref Database db, ref Member user)
     {
@@ -97,8 +111,19 @@ public static class AllMenues
         int choice;
         while (true)
         {
+            Console.Clear();
             Logo.ShowProfileLogo();
             choice = menu.RunMenu();
+            if (choice == 0) ResumeMenu.CreateResumeMenu(ref db, ref user);
+            else if (choice == 1)
+            {
+                ResumeMenu.ShowUsersResumesMenu(ref db, ref user);
+            }
+            else if (choice == 2)
+            {
+                UpdatePersonalInfoMenu(ref db, ref user);
+            }
+            else break;
         }
     }
 
@@ -106,7 +131,7 @@ public static class AllMenues
     public static Member SignInMenu(ref Database db)
     {
         Console.Clear();
-        Member member = null;
+        Member member = null;  
         string[] options = { " Admin ", "Employee", "Employer", "< Back >" };
         Menu LogInMenu = new Menu(options, 12, Console.LargestWindowHeight);
         while (true)
@@ -251,7 +276,7 @@ public static class AllMenues
             Console.Clear();
             //GetJob Logosu
             Logo.ShowLogo();
-            if(member == null)
+            if(member == null || member.Username == null)//username-i null yoxlama sebebim signine daxil olub geri qayidanda orda secilenin default obyekti yaranir
                 GuestMenu(ref db, ref member);
             else
             {

@@ -8,7 +8,7 @@ using MenuModel;
 public class Employee : User, IAuth
 {
     public List<Resume> Resumes { get; set; }
-    public Employee() { Id = new Guid(); }
+    public Employee() { }
     public Employee(int age, string name, string surname, string phone, string mail, string username, string password)
     {
         Id = Guid.NewGuid();
