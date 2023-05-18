@@ -26,4 +26,18 @@ public class Vacancy
         IsActive = false;
         Title = title;
     }
+
+    public override string ToString()
+    {
+        return $@"
+                       -Vacancy-
+Job Title: {Title}
+Category: {Category.Name}
+Description: {Description}
+Payment: {Payment}
+Download Date: {DownloadDate.ToLongDateString()}
+Expire Date: {ExpireDate.ToLongDateString()}
+
+";
+    }
 }

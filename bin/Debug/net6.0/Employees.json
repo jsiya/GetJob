@@ -6,6 +6,7 @@
     "Surname": "cabbarova",
     "City": "",
     "Phone": "0708704747",
+    "ViewCount": 0,
     "Notifications": [],
     "Id": "f1a3075e-6c2a-4236-92b7-afab3ec06d75",
     "Mail": "jabbarovasia@gmail.com",
@@ -19,6 +20,7 @@
     "Surname": "Cabbarova",
     "City": "",
     "Phone": "0708704747",
+    "ViewCount": 0,
     "Notifications": [],
     "Id": "34727886-e267-47c7-aa26-4d6bfe71ed87",
     "Mail": "siajabbarova@gmail.com",
@@ -32,6 +34,7 @@
     "Surname": "Askerov",
     "City": "",
     "Phone": "0806757865",
+    "ViewCount": 0,
     "Notifications": [],
     "Id": "cba648d3-ffac-4546-8166-3fc36fd78c1b",
     "Mail": "natiqesgerov3011@gmail.com",
@@ -39,12 +42,53 @@
     "Password": "Natiq123*"
   },
   {
-    "Resumes": [],
+    "Resumes": [
+      {
+        "Id": "26203952-0b68-4349-8fc4-f16a5562e159",
+        "EmployeeId": "eaa626ef-f2f0-4fb3-8834-c64c80b3433f",
+        "Profession": "Developer",
+        "UserName": "Kamal Rehimov",
+        "LinkedIn": "//link",
+        "Education": [
+          "ADNSU",
+          "Step IT Acaddemy"
+        ],
+        "Skills": [
+          "Problem Solving",
+          "Communication Skills"
+        ],
+        "ViewCount": 0,
+        "Showable": false,
+        "IsActive": false,
+        "Languages": [
+          {
+            "Key": "English",
+            "Value": 3
+          }
+        ],
+        "Certificates": [
+          "Certificate 1"
+        ],
+        "Experiences": [
+          {
+            "Key": {
+              "Key": "",
+              "Value": ""
+            },
+            "Value": {
+              "Key": "",
+              "Value": ""
+            }
+          }
+        ]
+      }
+    ],
     "Age": 20,
     "Name": "Kamal",
     "Surname": "Rehimov",
     "City": "",
     "Phone": "0702339993",
+    "ViewCount": 0,
     "Notifications": [],
     "Id": "eaa626ef-f2f0-4fb3-8834-c64c80b3433f",
     "Mail": "rahimovkamal723@gmail.com",
@@ -58,6 +102,7 @@
     "Surname": "Hesenli",
     "City": "",
     "Phone": "0555551212",
+    "ViewCount": 0,
     "Notifications": [],
     "Id": "8c778b2c-eecd-4e44-8f8a-81c9d37e8e52",
     "Mail": "rustamh2006@gmail.com",

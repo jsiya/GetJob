@@ -34,6 +34,24 @@ public class Resume
     }
 
     //toString
-    
-    
+    public override string ToString()
+    {
+        string eduStr = String.Join(", ", Education);
+        string cerStr = String.Join(", ", Certificates);
+        //experience islemir duzelt!!!!!!
+        string exStr = String.Join(", ", Experiences);
+    return @$"
+                   --CV--
+Full Name: {UserName}
+Linkedin: {LinkedIn}
+Profession: {Profession}
+Education: {eduStr} 
+Certificates: {cerStr}
+Experiences: {exStr}
+ViewCount: {ViewCount}
+Showable: {Showable}
+Status: {(IsActive ? "Active" : "Deactive")}
+";
+    }
+
 }

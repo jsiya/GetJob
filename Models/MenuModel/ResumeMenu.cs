@@ -1,7 +1,6 @@
 ﻿using GetJob.Models.DB;
 using GetJob.Models.UserModels;
 using MenuModel;
-using System.Reflection.Emit;
 
 namespace GetJob.Models.MenuModel;
 
@@ -9,7 +8,6 @@ public static class ResumeMenu
 {
     public static void LanguageMenu( ref List<KeyValuePair<string, LanguageLevelInfo>> languages)
     {
-        Console.Write("Language:  ");
         string language = "";
         while(language.Length == 0) 
         {
@@ -111,13 +109,32 @@ public static class ResumeMenu
             }
             else if (choice == 7)
             {
-                db.DeactiveResumes.Add(new Resume(user.Id, profession, user.Username, linkedin, educations, skills, languages, certificates, experiences));
+                Employee employee = user as Employee;
+                Resume resume = new Resume(user.Id, profession, $"{employee.Name} {employee.Surname}", linkedin, educations, skills, languages, certificates, experiences);
+                employee.Resumes.Add(resume);
+                db.DeactiveResumes.Add(resume);
+                db.Writer();
+                break;
             }
             if (choice == 8) break;
         }
     }
     public static void ShowUsersResumesMenu(ref Database db, ref Member user)
     {
-
+        Console.Clear();
+        Logo.ShowResumesLogo();
+        Employee employee = user as Employee;
+        List<string> options = new() { "<=Back" };
+        List<Resume> resumes = employee.Resumes;
+        if (resumes != null)
+        {
+            options.AddRange(resumes.Select(resume => resume.ToString()));
+        }
+        Menu menu = new Menu(options.ToArray(), 12, Console.LargestWindowHeight);
+        while (true)
+        {
+            int choice = menu.RunMenu();
+            if (choice == 0) break;
+        }
     }
 }
