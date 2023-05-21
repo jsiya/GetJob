@@ -118,7 +118,6 @@ public class Employer : User, IAuth
         }
         return false;
     }
-
     public void SignIn(Database db)
     {
         string username = "";
@@ -175,11 +174,4 @@ public class Employer : User, IAuth
             }
         }
     }
-
-    //vakansiya elave elesin
-    //vakansiyani silsin
-    //is axtarana teklif elesin
-
-
-    //employer menu
 }

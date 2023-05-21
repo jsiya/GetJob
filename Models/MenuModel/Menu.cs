@@ -1,4 +1,6 @@
-﻿using static System.Console;
+﻿using System.Linq;
+using System.Xml;
+using static System.Console;
 
 namespace MenuModel;
 
@@ -179,9 +181,10 @@ public class Menu
     {
         //string leftPointer = "    ";
         //string rightPointer = "    ";
+        int count = 0;
         for (int i = 0; i < _menuList.Count; i++)
         {
-            SetCursorPosition(_drawMenuRowPos + i, _drawMenuColumnPos);
+            SetCursorPosition(_drawMenuRowPos + i + count, _drawMenuColumnPos);
             SetConsoleTextColor(ConsoleColor.White, ConsoleColor.Black);
             if (i == _currentSelection)
             {
@@ -195,6 +198,7 @@ public class Menu
             //leftPointer = "    ";
             //rightPointer = "    ";
             ResetColor();
+            count = _menuList[i].Count(x => x == '\n');
         }
     }
 

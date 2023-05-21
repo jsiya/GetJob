@@ -5,7 +5,7 @@
     "Name": "Asmar",
     "Surname": "Jabbarova",
     "City": "",
-    "Phone": "0556305050",
+    "Phone": "0556505050",
     "ViewCount": 0,
     "Notifications": [],
     "Id": "ff2bb4f6-d171-416e-8357-bf2ee835340c",
@@ -14,7 +14,42 @@
     "Password": "Qwerty123*"
   },
   {
-    "Vacancies": [],
+    "Vacancies": [
+      {
+        "EmployerId": "89b2c97e-28f1-41d9-909c-e12da0f083f9",
+        "Id": "b8e77dc8-c1dd-47f0-b475-b8f317dbc3b0",
+        "Title": "BackEnd Developer (Java)",
+        "DownloadDate": "2023-05-21T00:00:00+04:00",
+        "ExpireDate": "2023-06-20T00:00:00+04:00",
+        "Category": {
+          "Id": "52905be2-13ec-4029-82d3-1d0b6506ab55",
+          "Name": "Frontend Developer"
+        },
+        "Payment": 0,
+        "Description": "...........",
+        "IsActive": false,
+        "Showable": false,
+        "ViewCount": 0,
+        "Appliers": []
+      },
+      {
+        "EmployerId": "89b2c97e-28f1-41d9-909c-e12da0f083f9",
+        "Id": "1b08887b-4af1-4726-98e4-f70b161ee185",
+        "Title": "Sys Admin",
+        "DownloadDate": "2023-05-21T00:00:00+04:00",
+        "ExpireDate": "2023-06-20T00:00:00+04:00",
+        "Category": {
+          "Id": "52905be2-13ec-4029-82d3-1d0b6506ab55",
+          "Name": "Frontend Developer"
+        },
+        "Payment": 800,
+        "Description": "Hefte ici 5 gun",
+        "IsActive": false,
+        "Showable": false,
+        "ViewCount": 0,
+        "Appliers": []
+      }
+    ],
     "Age": 25,
     "Name": "Sima",
     "Surname": "Maniyeva",
@@ -33,7 +68,7 @@
     "Name": "Ali",
     "Surname": "Ibrahimov",
     "City": "",
-    "Phone": "0552005424",
+    "Phone": "0552005004",
     "ViewCount": 0,
     "Notifications": [],
     "Id": "b31190ea-82b9-4d45-81d3-689fc69078e5",

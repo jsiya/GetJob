@@ -137,4 +137,13 @@ public static class ResumeMenu
             if (choice == 0) break;
         }
     }
+
+    public static void TransferResumes(ref Database db)
+    {
+        db.ActiveResumes.AddRange(db.DeactiveResumes.Where(vacancy => vacancy.IsActive == true));
+        db.DeactiveResumes.RemoveAll(vacancy => vacancy.IsActive == true);
+        db.DeactiveResumes.AddRange(db.ActiveResumes.Where(vac => vac.IsActive == false));
+        db.ActiveResumes.RemoveAll(vac => vac.IsActive == false);
+        db.Writer();
+    }
 }

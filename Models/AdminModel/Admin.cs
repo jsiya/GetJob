@@ -65,16 +65,6 @@ public class Admin: Member, IAuth
             }
         }
     }
-
-    public void EditUser(ref Database db)
-    {
-
-    }
-    //user usere baxsin
-    //useri edit etsin
-    //employeelerin cv-lerinin tesdiqlesin
-    //employerlerin vakansiyalarini tesdiqlesin
-
     public override string ToString()
     {
         return $"id={Id}\nmail={Mail}\nusername={Username}\npassword={Password}";

@@ -46,7 +46,7 @@ public static class Logo
 
     public static void ShowVarificationLogo()
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(@"
                                                  __   __        _  __ _         _   _          
                                                  \ \ / /_ _ _ _(_)/ _(_)__ __ _| |_(_)___ _ _  
@@ -84,7 +84,7 @@ public static class Logo
     }
     public static void ShowEmployersLogo()
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine(@"
                                               ___            _                     
                                              | __|_ __  _ __| |___ _  _ ___ _ _ ___
@@ -96,7 +96,7 @@ public static class Logo
 
     public static void ShowEmployeesLogo()
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine(@"
                                               ___            _                     
                                              | __|_ __  _ __| |___ _  _ ___ ___ ___
@@ -108,7 +108,7 @@ public static class Logo
 
     public static void ShowNotificationsLogo()
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(@"
                                            __      _   _  __ _           _   _                 
                                         /\ \ \___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  ___ 
@@ -121,7 +121,7 @@ public static class Logo
 
     public static void ShowNewResumeLogo()
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine(@"
                                             __                  __                                
                                          /\ \ \_____      __   /__\ ___  ___ _   _ _ __ ___   ___ 
@@ -133,7 +133,7 @@ public static class Logo
     }
     public static void ShowNewVacancyLogo()
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine(@"
                                            __                                                      
                                         /\ \ \_____      __ /\   /\__ _  ___ __ _ _ __   ___ _   _ 
@@ -146,12 +146,23 @@ public static class Logo
     }
     public static void ShowProfileLogo()
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(@"
                                                      ____ ____ ____ ____ ____ ____ ____ 
                                                     ||P |||r |||o |||f |||i |||l |||e ||
                                                     ||__|||__|||__|||__|||__|||__|||__||
                                                     |/__\|/__\|/__\|/__\|/__\|/__\|/__\|                                                                                                                                                         
+");
+    }
+
+    public static void ShowAdminLogo()
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(@"
+                                                           ____ ____ ____ ____ ____ 
+                                                          ||A |||D |||M |||I |||N ||
+                                                          ||__|||__|||__|||__|||__||
+                                                          |/__\|/__\|/__\|/__\|/__\|                                                                                                                                                    
 ");
     }
 }

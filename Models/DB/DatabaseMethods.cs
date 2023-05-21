@@ -10,42 +10,50 @@ public partial class Database
     public partial void Reader()
     {
         using FileStream fs = new FileStream("Admin.json", FileMode.Open);
-        Admins = System.Text.Json.JsonSerializer.Deserialize<List<Admin>>(fs);
+        if (fs.Length > 0)
+            Admins = System.Text.Json.JsonSerializer.Deserialize<List<Admin>>(fs);
         if( Admins == null) 
             Admins = new();
 
         using FileStream fs2 = new FileStream("Employees.json", FileMode.Open);
-        Employees = System.Text.Json.JsonSerializer.Deserialize<List<Employee>>(fs2);
+        if (fs2.Length > 0)
+            Employees = System.Text.Json.JsonSerializer.Deserialize<List<Employee>>(fs2);
         if (Employees == null)
             Employees = new();
 
         using FileStream fs3 = new FileStream("Employers.json", FileMode.Open);
-        Employers = System.Text.Json.JsonSerializer.Deserialize<List<Employer>>(fs3);
+        if (fs3.Length > 0)
+            Employers = System.Text.Json.JsonSerializer.Deserialize<List<Employer>>(fs3);
         if (Employers == null)
             Employers = new();
 
         using FileStream fs4 = new FileStream("Categories.json", FileMode.Open);
-        Categories = System.Text.Json.JsonSerializer.Deserialize<List<Category>>(fs4);
+        if(fs4.Length > 0)
+            Categories = System.Text.Json.JsonSerializer.Deserialize<List<Category>>(fs4);
         if (Categories == null)
             Categories = new();
 
         using FileStream fs5 = new FileStream("ActiveVacancies.json", FileMode.Open);
-        ActiveVacancies = System.Text.Json.JsonSerializer.Deserialize<List<Vacancy>>(fs5);
+        if (fs5.Length > 0)
+            ActiveVacancies = System.Text.Json.JsonSerializer.Deserialize<List<Vacancy>>(fs5);
         if (ActiveVacancies == null)
             ActiveVacancies = new();
 
         using FileStream fs6 = new FileStream("DeactiveVacancies.json", FileMode.Open);
-        DeactiveVacancies = System.Text.Json.JsonSerializer.Deserialize<List<Vacancy>>(fs6);
+        if (fs6.Length > 0)
+            DeactiveVacancies = System.Text.Json.JsonSerializer.Deserialize<List<Vacancy>>(fs6);
         if (DeactiveVacancies == null)
             DeactiveVacancies = new();
 
         using FileStream fs7 = new FileStream("ActiveResumes.json", FileMode.Open);
-        ActiveResumes = System.Text.Json.JsonSerializer.Deserialize<List<Resume>>(fs7);
+        if (fs7.Length > 0)
+            ActiveResumes = System.Text.Json.JsonSerializer.Deserialize<List<Resume>>(fs7);
         if (ActiveResumes == null)
             ActiveResumes = new();
 
         using FileStream fs8 = new FileStream("DeactiveResumes.json", FileMode.Open);
-        DeactiveResumes = System.Text.Json.JsonSerializer.Deserialize<List<Resume>>(fs8);
+        if (fs8.Length > 0)
+            DeactiveResumes = System.Text.Json.JsonSerializer.Deserialize<List<Resume>>(fs8);
         if (DeactiveResumes == null)
             DeactiveResumes = new();
 
@@ -62,15 +70,15 @@ public partial class Database
 
         File.WriteAllText("Employers.json", System.Text.Json.JsonSerializer.Serialize(Employers, options));
 
-        File.WriteAllText("Categories.json", System.Text.Json.JsonSerializer.Serialize(Employers, options));
+        File.WriteAllText("Categories.json", System.Text.Json.JsonSerializer.Serialize(Categories, options));
 
-        File.WriteAllText("ActiveVacancies.json", System.Text.Json.JsonSerializer.Serialize(Employers, options));
+        File.WriteAllText("ActiveVacancies.json", System.Text.Json.JsonSerializer.Serialize(ActiveVacancies, options));
 
-        File.WriteAllText("DeactiveVacancies.json", System.Text.Json.JsonSerializer.Serialize(Employers, options));
+        File.WriteAllText("DeactiveVacancies.json", System.Text.Json.JsonSerializer.Serialize(DeactiveVacancies, options));
 
-        File.WriteAllText("ActiveResumes.json", System.Text.Json.JsonSerializer.Serialize(Employers, options));
+        File.WriteAllText("ActiveResumes.json", System.Text.Json.JsonSerializer.Serialize(ActiveResumes, options));
 
-        File.WriteAllText("DeactiveResumes.json", System.Text.Json.JsonSerializer.Serialize(Employers, options));
+        File.WriteAllText("DeactiveResumes.json", System.Text.Json.JsonSerializer.Serialize(DeactiveResumes, options));
 
     }
 }

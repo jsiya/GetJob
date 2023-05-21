@@ -170,10 +170,4 @@ public class Employee : User, IAuth
         }
         return false;
     }
-
-    //ise apply etsin
-    //cv elave elesin //add methodu generic
-    //cv-ni silsin
-
-    //employee menu
 }
