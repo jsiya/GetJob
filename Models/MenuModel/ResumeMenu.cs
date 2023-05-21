@@ -122,20 +122,26 @@ public static class ResumeMenu
     }
     public static void ShowUsersResumesMenu(ref Database db, ref Member user)
     {
-        Console.Clear();
-        Logo.ShowResumesLogo();
         Employee employee = user as Employee;
         List<string> options = new() { "<=Back" };
         List<Resume> resumes = employee.Resumes;
         if (resumes != null)
         {
-            options.AddRange(resumes.Select(resume => resume.ToString()));
+            options.AddRange(resumes.Select(resume => resume.Profession));
         }
         Menu menu = new Menu(options.ToArray(), 12, Console.LargestWindowHeight);
         while (true)
         {
+            Console.Clear();
+            Logo.ShowResumesLogo();
             int choice = menu.RunMenu();
             if (choice == 0) break;
+            else
+            {
+                Console.WriteLine(employee.Resumes.ElementAt(choice - 1).ToString());
+                Console.WriteLine("Press any key to return back...");
+                var key = Console.ReadKey();
+            }
         }
     }
 
