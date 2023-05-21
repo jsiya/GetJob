@@ -1,4 +1,6 @@
 ﻿using GetJob.Models.DB;
+using GetJob.Models.Notifications;
+using GetJob.Models.UserModels;
 using MenuModel;
 
 namespace GetJob.Models.MenuModel;
@@ -18,7 +20,7 @@ public class AdminMenues
             Logo.ShowAdminLogo();
             choice = menu.RunMenu();
             if (choice == 0)
-                AllEMployers(ref db, ref member);
+                AllEmployers(ref db, ref member);
             else if (choice == 1)
                 AllEmployees(ref db, ref member);
             else if (choice == 2)
@@ -38,14 +40,60 @@ public class AdminMenues
     }
 
 
-    public static void AllEMployers(ref Database db, ref Member user)
+    public static void AllEmployers(ref Database db, ref Member user)
     {
+        List<string> users = new() { "<=back" };
+        users.AddRange(db.Employers.Select(x => x.Username).ToList());
 
+        Menu menu = new Menu(users.ToArray(), 12, Console.LargestWindowHeight);
+        int choice;
+        while (true)
+        {
+            Console.Clear();
+            Logo.ShowEmployersLogo();
+            choice = menu.RunMenu();
+            if (choice == 0) break;
+            Console.Clear();
+            Console.WriteLine(db.Employers.ElementAt(choice - 1).ToString());
+            Menu suggestMenu = new Menu(new string[] { "<=Back", "Delete" }, 12, 20);
+            int choice2 = suggestMenu.RunMenu();
+            if(choice2 == 1)
+            {
+                string email = db.Employers.ElementAt(choice - 1).Mail;
+                db.Employers.Remove(db.Employers.ElementAt(choice - 1));
+                MailSender.SendMail(new("Your account deleted!", DateTime.Now.ToString(), user), email);
+                db.Writer();
+                break;
+            } 
+        }
     }
 
     public static void AllEmployees(ref Database db, ref Member member)
     {
+        List<string> users = new() { "<=back" };
+        users.AddRange(db.Employees.Select(x => x.Username).ToList());
 
+        Menu menu = new Menu(users.ToArray(), 12, Console.LargestWindowHeight);
+        int choice;
+        while (true)
+        {
+            Console.Clear();
+            Logo.ShowEmployeesLogo();
+            choice = menu.RunMenu();
+            if (choice == 0) break;
+            Console.Clear();
+            Console.WriteLine(db.Employees.ElementAt(choice - 1).ToString());
+            Menu suggestMenu = new Menu(new string[] { "<=Back", "Delete" }, 12, 20);
+            int choice2 = suggestMenu.RunMenu();
+            if (choice2 == 1)
+            {
+                string email = db.Employees.ElementAt(choice - 1).Mail;
+                db.Employees.Remove(db.Employees.ElementAt(choice - 1));
+                MailSender.SendMail(new("Your account deleted!", DateTime.Now.ToString(), member), email);
+                db.Writer();
+                break;
+            }
+        }
     }
 
     public static void ActivateAndDeactivateMenu(ref Database db, ref Member member)
@@ -90,7 +138,7 @@ public class AdminMenues
             }
             db.DeactiveResumes.ElementAt(choice - 1).IsActive = !db.DeactiveResumes.ElementAt(choice - 1).IsActive;
             if (db.DeactiveResumes.ElementAt(choice - 1).IsActive == true)
-                    db.DeactiveResumes.ElementAt(choice - 1).Showable = !db.DeactiveVacancies.ElementAt(choice - 1).Showable;
+                    db.DeactiveResumes.ElementAt(choice - 1).Showable = !db.DeactiveResumes.ElementAt(choice - 1).Showable;
         }
     }
 }

@@ -99,6 +99,8 @@ public static class EmployerMenues
                     employer.Mail = email;
                     employer.Phone = phone;
                     db.Writer();
+                    employer.Notifications.Add(new Notification("Personal Info Updated",DateTime.Now.ToString(), employer));
+                    MailSender.SendMail(employer.Notifications.Last(), employer.Mail);
                 }
             }
             else break;
@@ -127,6 +129,7 @@ public static class EmployerMenues
             try
             {
                 Console.WriteLine(employees.ElementAt(choice - 1).Resumes.LastOrDefault(cv => cv.Showable == true).ToString());
+                employees.ElementAt(choice - 1).Resumes.LastOrDefault(cv => cv.Showable == true).ViewCount++;
             }
             catch
             {
@@ -136,8 +139,8 @@ public static class EmployerMenues
             List<string> ops2 = new() { "Yes", "No" };
             Menu menu2 = new Menu(ops2.ToArray(), 10, Console.LargestWindowHeight);
             int choice2 = menu2.RunMenu();
-            if (choice2 == 0) MailSender.SendMail(new Notification($"Congratulation {employees.ElementAt(choice - 1).Name}! Your appeal for {db.ActiveVacancies.ElementAt(index).Title} was accepted!", DateTime.Now, user), employees.ElementAt(choice - 1).Mail);
-            else MailSender.SendMail(new Notification($"Hope you are well {employees.ElementAt(choice - 1).Name}! Unfortunately, your appeal for {db.ActiveVacancies.ElementAt(index).Title} was rejected!", DateTime.Now, user), employees.ElementAt(choice - 1).Mail);
+            if (choice2 == 0) MailSender.SendMail(new Notification($"Congratulation {employees.ElementAt(choice - 1).Name}! Your appeal for {db.ActiveVacancies.ElementAt(index).Title} was accepted!", DateTime.Now.ToString(), user), employees.ElementAt(choice - 1).Mail);
+            else MailSender.SendMail(new Notification($"Hope you are well {employees.ElementAt(choice - 1).Name}! Unfortunately, your appeal for {db.ActiveVacancies.ElementAt(index).Title} was rejected!", DateTime.Now.ToString(), user), employees.ElementAt(choice - 1).Mail);
         }
 
     }

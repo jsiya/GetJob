@@ -2,95 +2,70 @@
   {
     "Vacancies": [],
     "Age": 20,
-    "Name": "Asmar",
-    "Surname": "Jabbarova",
-    "City": "",
-    "Phone": "0556505050",
-    "ViewCount": 0,
-    "Notifications": [],
-    "Id": "ff2bb4f6-d171-416e-8357-bf2ee835340c",
-    "Mail": "siajabbarova@gmail.com",
-    "Username": "asmar_jb",
-    "Password": "Qwerty123*"
-  },
-  {
-    "Vacancies": [
-      {
-        "EmployerId": "89b2c97e-28f1-41d9-909c-e12da0f083f9",
-        "Id": "b8e77dc8-c1dd-47f0-b475-b8f317dbc3b0",
-        "Title": "BackEnd Developer (Java)",
-        "DownloadDate": "2023-05-21T00:00:00+04:00",
-        "ExpireDate": "2023-06-20T00:00:00+04:00",
-        "Category": {
-          "Id": "52905be2-13ec-4029-82d3-1d0b6506ab55",
-          "Name": "Frontend Developer"
-        },
-        "Payment": 0,
-        "Description": "...........",
-        "IsActive": false,
-        "Showable": false,
-        "ViewCount": 0,
-        "Appliers": []
-      },
-      {
-        "EmployerId": "89b2c97e-28f1-41d9-909c-e12da0f083f9",
-        "Id": "1b08887b-4af1-4726-98e4-f70b161ee185",
-        "Title": "Sys Admin",
-        "DownloadDate": "2023-05-21T00:00:00+04:00",
-        "ExpireDate": "2023-06-20T00:00:00+04:00",
-        "Category": {
-          "Id": "52905be2-13ec-4029-82d3-1d0b6506ab55",
-          "Name": "Frontend Developer"
-        },
-        "Payment": 800,
-        "Description": "Hefte ici 5 gun",
-        "IsActive": false,
-        "Showable": false,
-        "ViewCount": 0,
-        "Appliers": []
-      },
-      {
-        "EmployerId": "89b2c97e-28f1-41d9-909c-e12da0f083f9",
-        "Id": "efbfbfac-2ee0-4ad9-9b6a-8d1bae95b1c5",
-        "Title": "Sistem adminstratoru",
-        "DownloadDate": "2023-05-21T00:00:00+04:00",
-        "ExpireDate": "2023-06-20T00:00:00+04:00",
-        "Category": {
-          "Id": "091f2b5d-7fa0-4f91-9ebc-aadea0ceb868",
-          "Name": "Fehle"
-        },
-        "Payment": 1200,
-        "Description": "lesijejg sehiorhg",
-        "IsActive": false,
-        "Showable": false,
-        "ViewCount": 0,
-        "Appliers": []
-      }
-    ],
-    "Age": 25,
-    "Name": "Sima",
-    "Surname": "Maniyeva",
-    "City": "",
-    "Phone": "0124543102",
-    "ViewCount": 0,
-    "Notifications": [],
-    "Id": "89b2c97e-28f1-41d9-909c-e12da0f083f9",
-    "Mail": "simaniyeva03@gmail.com",
-    "Username": "sim__ma03",
-    "Password": "Sima123@"
-  },
-  {
-    "Vacancies": [],
-    "Age": 20,
     "Name": "Ali",
     "Surname": "Ibrahimov",
     "City": "",
     "Phone": "0552005004",
-    "ViewCount": 0,
+    "ViewCount": 1,
     "Notifications": [],
     "Id": "b31190ea-82b9-4d45-81d3-689fc69078e5",
     "Mail": "aliibrah30@gmail.com",
     "Username": "alibra___",
     "Password": "Alibra123*"
+  },
+  {
+    "Vacancies": [
+      {
+        "EmployerId": "997f7d48-2302-4e52-aeaa-623a397b81f4",
+        "Id": "1cf97809-866f-4c68-afd4-a10662f98964",
+        "Title": "Project manager",
+        "DownloadDate": "2023-05-21T00:00:00+04:00",
+        "ExpireDate": "2023-06-20T00:00:00+04:00",
+        "Category": {
+          "Id": "9d3046be-2bde-48b3-8d14-bd2fc9966f31",
+          "Name": "Project Manager"
+        },
+        "Payment": 1350,
+        "Description": "We are looking for blah blah blah....",
+        "IsActive": true,
+        "Showable": true,
+        "ViewCount": 0,
+        "Appliers": []
+      }
+    ],
+    "Age": 21,
+    "Name": "Siya",
+    "Surname": "Cabbarova",
+    "City": "",
+    "Phone": "0501234567",
+    "ViewCount": 0,
+    "Notifications": [
+      {
+        "Id": "94fd935c-9d39-4c3c-b4bd-31374eab94bf",
+        "Text": "Personal Info Updated",
+        "NotificationDateTime": "2023-05-21T19:50:33.9883275\u002B04:00",
+        "FromUser": {
+          "Id": "997f7d48-2302-4e52-aeaa-623a397b81f4",
+          "Mail": "siajabbarova@gmail.com",
+          "Username": "siyacabbar",
+          "Password": "Siya123@"
+        }
+      },
+      {
+        "Id": "511394eb-0161-4b53-805d-346214b68e98",
+        "Text": "New Vacancy Created!",
+        "NotificationDateTime": "2023-05-21T19:52:21.9757816\u002B04:00",
+        "FromUser": {
+          "Id": "997f7d48-2302-4e52-aeaa-623a397b81f4",
+          "Mail": "siajabbarova@gmail.com",
+          "Username": "siyacabbar",
+          "Password": "Siya123@"
+        }
+      }
+    ],
+    "Id": "997f7d48-2302-4e52-aeaa-623a397b81f4",
+    "Mail": "siajabbarova@gmail.com",
+    "Username": "siyacabbar",
+    "Password": "Siya123@"
   }
 ]

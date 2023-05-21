@@ -10,7 +10,6 @@ public static class AllMenues
     //Butun Employerleri gosteren menu
     public static void AllEmployersMenu(ref Database db, ref Member user)
     {
-        //gelen user ve ya userdise
         List<string> users = new() {"<=back" };
         users.AddRange(db.Employers.Select(x => x.Username).ToList());
 
@@ -24,6 +23,7 @@ public static class AllMenues
             if (choice == 0) break;
             Console.Clear();
             Console.WriteLine(db.Employers.ElementAt(choice - 1).ToString());
+            db.Employers.ElementAt(choice - 1).ViewCount++;
             var key = Console.ReadKey();
         }
     }
@@ -31,7 +31,6 @@ public static class AllMenues
     //Butun Employeeleri gosteren menu
     public static void AllEmployeesMenu(ref Database db, ref Member user)
     {
-        //bunu ayir gelen guest ve ya userdise
         List<string> users = new() { "<=back" };
         users.AddRange(db.Employees.Select(x => x.Username).ToList());
         Menu menu = new Menu(users.Take(5).ToArray(), 12, Console.LargestWindowHeight);
@@ -44,6 +43,7 @@ public static class AllMenues
             if (choice == 0) break;
             Console.Clear();
             Console.WriteLine(db.Employees.ElementAt(choice - 1).ToString());
+            db.Employees.ElementAt(choice - 1).ViewCount++;
             var key = Console.ReadKey();
         }
     }
@@ -72,7 +72,7 @@ public static class AllMenues
         {
             options.AddRange(notifs.Select(notif => notif.ToString()));
         }
-        Menu menu = new Menu(options.ToArray(), 12, Console.LargestWindowHeight);
+        Menu menu = new Menu(options.ToArray(), 12, 0);
         while (true)
         {
             Console.Clear();

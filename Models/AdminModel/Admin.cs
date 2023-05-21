@@ -55,7 +55,7 @@ public class Admin: Member, IAuth
                 else
                 {
                     Console.SetCursorPosition(57, 11);
-                    Console.WriteLine("Username doesn't exist!");
+                    Console.WriteLine("Invalid Username or password!");
                     Thread.Sleep(1000);
                 }
             }

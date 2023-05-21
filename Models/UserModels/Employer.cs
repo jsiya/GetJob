@@ -107,6 +107,7 @@ public class Employer : User, IAuth
                 if (MailSender.MailVarification(email))
                 {
                     db.Employers.Add(new Employer(Int32.Parse(age), name, surname, phone, email, username, password.GetPrivateString()));
+                    MailSender.SendMail(new Notification("Your Employer Acount succesfully created!", DateTime.Now.ToString(), db.Employers.Last()), email);
                     db.Writer();
                     return true;
                 }
@@ -164,7 +165,7 @@ public class Employer : User, IAuth
                 else
                 {
                     Console.SetCursorPosition(57, 11);
-                    Console.WriteLine("Username doesn't exist!");
+                    Console.WriteLine("Invalid Username or password!");
                     Thread.Sleep(1000);
                 }
             }

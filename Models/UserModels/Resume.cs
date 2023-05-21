@@ -38,13 +38,16 @@ public class Resume
     {
         string eduStr = String.Join(", ", Education);
         string cerStr = String.Join(", ", Certificates);
-        //experience islemir duzelt!!!!!!
         string exStr = String.Join(", ", Experiences);
+        string skills = String.Join(", ", Skills);
+        string languages = String.Join(", ", Languages.Select(lang =>(lang.Key, lang.Value)));
     return @$"
                    --CV--
 Full Name: {UserName}
 Linkedin: {LinkedIn}
 Profession: {Profession}
+Skills: {skills}
+Languages: {languages}
 Education: {eduStr} 
 Certificates: {cerStr}
 Experiences: {exStr}

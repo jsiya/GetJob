@@ -1,13 +1,78 @@
 [
   {
-    "Resumes": [],
+    "Resumes": [
+      {
+        "Id": "4d94117d-23ad-4a63-9361-dc8ac455c17d",
+        "EmployeeId": "f1a3075e-6c2a-4236-92b7-afab3ec06d75",
+        "Profession": "Software Developer",
+        "UserName": "siya cabbarova",
+        "LinkedIn": "//link.sddwrege",
+        "Education": [
+          "BSU Computer Science"
+        ],
+        "Skills": [
+          "Problem Solving",
+          "C#"
+        ],
+        "ViewCount": 0,
+        "Showable": false,
+        "IsActive": false,
+        "Languages": [],
+        "Certificates": [],
+        "Experiences": [
+          {
+            "Key": {
+              "Key": "",
+              "Value": ""
+            },
+            "Value": {
+              "Key": "",
+              "Value": ""
+            }
+          }
+        ]
+      },
+      {
+        "Id": "f7a44a13-49bd-406b-b7aa-ef7f52d9d4af",
+        "EmployeeId": "f1a3075e-6c2a-4236-92b7-afab3ec06d75",
+        "Profession": "Software Developer",
+        "UserName": "siya cabbarova",
+        "LinkedIn": "//linkkkkkkkkkkk",
+        "Education": [
+          "BSU Computer Science",
+          "IT Step Software Development"
+        ],
+        "Skills": [
+          "Communication",
+          "Problem Solving"
+        ],
+        "ViewCount": 0,
+        "Showable": false,
+        "IsActive": false,
+        "Languages": [],
+        "Certificates": [],
+        "Experiences": []
+      }
+    ],
     "Age": 21,
     "Name": "siya",
     "Surname": "cabbarova",
     "City": "",
     "Phone": "0708704747",
-    "ViewCount": 0,
-    "Notifications": [],
+    "ViewCount": 6,
+    "Notifications": [
+      {
+        "Id": "15ba9d1a-1b6a-4648-971a-64c781612258",
+        "Text": "Profil Info Updated!",
+        "NotificationDateTime": "5/21/2023 8:54:35 PM",
+        "FromUser": {
+          "Id": "f1a3075e-6c2a-4236-92b7-afab3ec06d75",
+          "Mail": "jabbarovasia@gmail.com",
+          "Username": "jassyaaa",
+          "Password": "Salam123*"
+        }
+      }
+    ],
     "Id": "f1a3075e-6c2a-4236-92b7-afab3ec06d75",
     "Mail": "jabbarovasia@gmail.com",
     "Username": "jassyaaa",
@@ -20,7 +85,7 @@
     "Surname": "Cabbarova",
     "City": "",
     "Phone": "0708704747",
-    "ViewCount": 0,
+    "ViewCount": 2,
     "Notifications": [],
     "Id": "34727886-e267-47c7-aa26-4d6bfe71ed87",
     "Mail": "siajabbarova@gmail.com",
@@ -34,7 +99,7 @@
     "Surname": "Askerov",
     "City": "",
     "Phone": "0806757865",
-    "ViewCount": 0,
+    "ViewCount": 1,
     "Notifications": [],
     "Id": "cba648d3-ffac-4546-8166-3fc36fd78c1b",
     "Mail": "natiqesgerov3011@gmail.com",
@@ -88,25 +153,11 @@
     "Surname": "Rehimov",
     "City": "",
     "Phone": "0702339993",
-    "ViewCount": 0,
+    "ViewCount": 2,
     "Notifications": [],
     "Id": "eaa626ef-f2f0-4fb3-8834-c64c80b3433f",
     "Mail": "rahimovkamal723@gmail.com",
     "Username": "kamalrahim",
     "Password": "Kamal123@"
-  },
-  {
-    "Resumes": [],
-    "Age": 21,
-    "Name": "Rustem",
-    "Surname": "Hesenli",
-    "City": "",
-    "Phone": "0555551212",
-    "ViewCount": 0,
-    "Notifications": [],
-    "Id": "8c778b2c-eecd-4e44-8f8a-81c9d37e8e52",
-    "Mail": "rustamh2006@gmail.com",
-    "Username": "rustamhesen",
-    "Password": "Salam123@"
   }
 ]

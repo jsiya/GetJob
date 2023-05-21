@@ -7,6 +7,13 @@ namespace GetJob.Models.DB;
 
 public partial class Database
 {
+    private void SortDB()
+    {
+        Employees.OrderByDescending(employee => employee.ViewCount);
+        Employers.OrderByDescending(employer => employer.ViewCount);
+        ActiveResumes.OrderByDescending(resume => resume.ViewCount);
+        ActiveVacancies.OrderByDescending(vacancy => vacancy.ViewCount);
+    }
     public partial void Reader()
     {
         using FileStream fs = new FileStream("Admin.json", FileMode.Open);
@@ -60,6 +67,7 @@ public partial class Database
     }
     public partial void Writer()
     {
+        SortDB();
         JsonSerializerOptions options = new JsonSerializerOptions();
         options.WriteIndented = true;
         if (Admins != null)

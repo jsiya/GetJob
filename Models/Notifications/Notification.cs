@@ -4,10 +4,9 @@ public class Notification
 {
     public Guid Id { get; set; }
     public string? Text { get; set; }
-    public DateTime NotificationDateTime { get; set; }
+    public string NotificationDateTime { get; set; }
     public Member? FromUser { get; set; }
-    public Notification() { }
-    public Notification(string text, DateTime notificationDateTime, Member fromUser)
+    public Notification(string text, string notificationDateTime, Member fromUser)
     {
         Id = Guid.NewGuid();
         Text = text;

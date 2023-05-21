@@ -114,6 +114,7 @@ public static class ResumeMenu
                 employee.Resumes.Add(resume);
                 db.DeactiveResumes.Add(resume);
                 db.Writer();
+                employee.Notifications.Add(new Notifications.Notification("New Resume Created!", DateTime.Now.ToString(), user));
                 break;
             }
             if (choice == 8) break;

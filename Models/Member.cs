@@ -1,5 +1,6 @@
 ﻿namespace GetJob.Models;
-public abstract class Member
+//evvel abstract yazmisdim ama jsondan ouya bilmir deye deyisirem
+public class Member
 {
     public Guid Id { get; set; }
     public string Mail { get; set; }

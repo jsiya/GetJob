@@ -13,8 +13,10 @@
     "Description": "...........",
     "IsActive": true,
     "Showable": true,
-    "ViewCount": 0,
-    "Appliers": []
+    "ViewCount": 2,
+    "Appliers": [
+      "f1a3075e-6c2a-4236-92b7-afab3ec06d75"
+    ]
   },
   {
     "EmployerId": "89b2c97e-28f1-41d9-909c-e12da0f083f9",
@@ -47,10 +49,27 @@
     "Description": "lesijejg sehiorhg",
     "IsActive": true,
     "Showable": true,
-    "ViewCount": 0,
+    "ViewCount": 1,
     "Appliers": [
       "eaa626ef-f2f0-4fb3-8834-c64c80b3433f",
       "f1a3075e-6c2a-4236-92b7-afab3ec06d75"
     ]
+  },
+  {
+    "EmployerId": "997f7d48-2302-4e52-aeaa-623a397b81f4",
+    "Id": "1cf97809-866f-4c68-afd4-a10662f98964",
+    "Title": "Project manager",
+    "DownloadDate": "2023-05-21T00:00:00+04:00",
+    "ExpireDate": "2023-06-20T00:00:00+04:00",
+    "Category": {
+      "Id": "9d3046be-2bde-48b3-8d14-bd2fc9966f31",
+      "Name": "Project Manager"
+    },
+    "Payment": 1350,
+    "Description": "We are looking for blah blah blah....",
+    "IsActive": true,
+    "Showable": true,
+    "ViewCount": 0,
+    "Appliers": []
   }
 ]

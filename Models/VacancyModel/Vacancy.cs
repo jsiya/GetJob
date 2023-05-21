@@ -12,7 +12,7 @@ public class Vacancy
     public bool IsActive { get; set; }//admin tesdiqleyene kimi deactive
     public bool Showable { get; set; }
     public int ViewCount { get; set; }
-    public List<Guid> Appliers { get; set; } //vakansiyalara apply olanlar?
+    public List<Guid> Appliers { get; set; } //vakansiyalara apply edenler
     public Vacancy() { }
 
     public Vacancy(Guid employerId, DateTime downloadDate, DateTime expireDate, Category category, int payment, string description, string title)

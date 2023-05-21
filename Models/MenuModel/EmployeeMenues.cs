@@ -1,7 +1,6 @@
 ﻿using GetJob.Models.DB;
 using GetJob.Models.Notifications;
 using MenuModel;
-using System.Xml.Linq;
 
 namespace GetJob.Models.MenuModel;
 
@@ -101,7 +100,9 @@ public static class EmployeeMenues
                     employee.City = city;
                     employee.Mail = email;
                     employee.Phone = phone;
+                    employee.Notifications.Add(new Notification("Profil Info Updated!", DateTime.Now.ToString(), employee));
                     db.Writer();
+                    MailSender.SendMail(employee.Notifications.Last(), employee.Mail);
                 }
             }
             else break;

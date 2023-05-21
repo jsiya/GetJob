@@ -9,6 +9,7 @@ public static class VacancyMenu
     //vakansiya yaratma menusu
     public static void CreateVacancyMenu(ref Database db, ref Member user)
     {
+        Employer employer1 = new Employer();
         string title = "", description = "";
         int payment = 0;
         Category category = new Category();
@@ -55,6 +56,7 @@ public static class VacancyMenu
                 employer.Vacancies.Add(vacancy);
                 db.DeactiveVacancies.Add(vacancy);
                 db.Writer();
+                employer.Notifications.Add(new Notifications.Notification("New Vacancy Created!", DateTime.Now.ToString(), user));
                 break;
             }
             if (choice == 5) break;
@@ -85,8 +87,9 @@ public static class VacancyMenu
                 int choice2 = suggestMenu.RunMenu();
                 if (choice2 == 0)
                 {
+                    db.ActiveVacancies.ElementAt(choice - 1).ViewCount++;
                     //eger user evvel apply olmayibsa apply edir
-                    if(!db.ActiveVacancies.ElementAt(choice - 1).Appliers.Contains(user.Id))
+                    if (!db.ActiveVacancies.ElementAt(choice - 1).Appliers.Contains(user.Id))
                     {
                         db.ActiveVacancies.ElementAt(choice - 1).Appliers.Add(user.Id);
                         Console.ForegroundColor = ConsoleColor.Green;
@@ -107,6 +110,7 @@ public static class VacancyMenu
                 if(user.Id != db.ActiveVacancies.ElementAt(choice - 1).EmployerId)
                 {
                     Console.WriteLine("Press any key to return...");
+                    db.ActiveVacancies.ElementAt(choice - 1).ViewCount++;
                     var key = Console.ReadKey();
                 }
                 else

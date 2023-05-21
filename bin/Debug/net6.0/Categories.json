@@ -10,5 +10,49 @@
   {
     "Id": "9d3046be-2bde-48b3-8d14-bd2fc9966f31",
     "Name": "Project Manager"
+  },
+  {
+    "Id": "25e74f79-e6cd-4544-ae70-53dd6c0fe981",
+    "Name": "Animator"
+  },
+  {
+    "Id": "1c0912b5-1678-4f1c-aa0a-c74ad03bdc14",
+    "Name": "Graphic Designer"
+  },
+  {
+    "Id": "8f7dbaf5-ce65-4ea4-878a-6da52e4f1f2b",
+    "Name": "Photographer"
+  },
+  {
+    "Id": "5b29fed2-95c1-4994-b695-c996d4cbaa90",
+    "Name": "Human Resource Manager"
+  },
+  {
+    "Id": "c02fb6b8-841f-487d-995f-e036a14126d5",
+    "Name": "Secretary"
+  },
+  {
+    "Id": "b9154fcd-3a4f-412d-85d2-4cf9a0ab981c",
+    "Name": "SMM"
+  },
+  {
+    "Id": "0c611c80-532a-4c6d-991a-911586b96b7e",
+    "Name": "Software Engineer"
+  },
+  {
+    "Id": "fcdf3bde-29d2-435d-8184-067a09e6d3e5",
+    "Name": "Nurse"
+  },
+  {
+    "Id": "0839fa63-53d6-4b66-b53d-0a06e8aa1dd1",
+    "Name": "Lawyer"
+  },
+  {
+    "Id": "89a2aa0d-16d8-407f-910a-b8f70c3807b8",
+    "Name": "Electrician"
+  },
+  {
+    "Id": "6dbb7037-e112-40b0-a984-56935ec3a9e7",
+    "Name": "Sales Manager"
   }
 ]
