@@ -146,4 +146,6 @@ public static class ResumeMenu
         db.ActiveResumes.RemoveAll(vac => vac.IsActive == false);
         db.Writer();
     }
+
+
 }

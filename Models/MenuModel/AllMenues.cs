@@ -11,17 +11,20 @@ public static class AllMenues
     public static void AllEmployersMenu(ref Database db, ref Member user)
     {
         //gelen user ve ya userdise
-        List<string> users = db.Employers.Select(x => x.Username).ToList();
-        users.Add("<=Back");
+        List<string> users = new() {"<=back" };
+        users.AddRange(db.Employers.Select(x => x.Username).ToList());
 
-        Menu menu = new Menu(users.ToArray(), 12, Console.LargestWindowHeight);
+        Menu menu = new Menu(users.Take(5).ToArray(), 12, Console.LargestWindowHeight);
         int choice;
         while (true)
         {
             Console.Clear();
             Logo.ShowEmployersLogo();
             choice = menu.RunMenu();
-            if (choice == users.Count - 1) break;
+            if (choice == 0) break;
+            Console.Clear();
+            Console.WriteLine(db.Employers.ElementAt(choice - 1).ToString());
+            var key = Console.ReadKey();
         }
     }
 
@@ -29,17 +32,19 @@ public static class AllMenues
     public static void AllEmployeesMenu(ref Database db, ref Member user)
     {
         //bunu ayir gelen guest ve ya userdise
-        List<string> users = db.Employees.Select(x => x.Username).ToList();
-        users.Add("<=Back");
-
-        Menu menu = new Menu(users.ToArray(), 12, Console.LargestWindowHeight);
+        List<string> users = new() { "<=back" };
+        users.AddRange(db.Employees.Select(x => x.Username).ToList());
+        Menu menu = new Menu(users.Take(5).ToArray(), 12, Console.LargestWindowHeight);
         int choice;
         while (true)
         {
             Console.Clear();
             Logo.ShowEmployeesLogo();
             choice = menu.RunMenu();
-            if (choice == users.Count - 1) break;
+            if (choice == 0) break;
+            Console.Clear();
+            Console.WriteLine(db.Employees.ElementAt(choice - 1).ToString());
+            var key = Console.ReadKey();
         }
     }
 
@@ -74,52 +79,6 @@ public static class AllMenues
             Logo.ShowNotificationsLogo();
             int choice = menu.RunMenu();
             if (choice == 0) break;
-        }
-    }
-
-    //profil melumatlarini editlemek
-    public static void UpdatePersonalInfoMenu(ref Database db, ref Member user)
-    {
-
-    }
-
-    //profile
-    public static void EmployeeProfileMenu(ref Database db, ref Member user)
-    {
-        Console.Clear();
-        string[] options = { "Create Resume", "Show My Resumes", "Update Personal Info", "< Back >" };
-        Menu menu = new Menu(options, 12, Console.LargestWindowHeight);
-        int choice;
-        while (true)
-        {
-            Console.Clear();
-            Logo.ShowProfileLogo();
-            choice = menu.RunMenu();
-            if (choice == 0) ResumeMenu.CreateResumeMenu(ref db, ref user);
-            else if (choice == 1) ResumeMenu.ShowUsersResumesMenu(ref db, ref user);
-            else if (choice == 2) UpdatePersonalInfoMenu(ref db, ref user); //yoxdu
-            else break;
-        }
-    }
-
-    public static void EmployerProfileMenu(ref Database db, ref Member user)
-    {
-        Console.Clear();
-        string[] options = { "Create Vacancy", "Show My Vacancies", "Update Personal Info", "< Back >" };
-        Menu menu = new Menu(options, 12, Console.LargestWindowHeight);
-        int choice;
-        while (true)
-        {
-            Console.Clear();
-            Logo.ShowProfileLogo();
-            choice = menu.RunMenu();
-            if (choice == 0) VacancyMenu.CreateVacancyMenu(ref db, ref user);
-            else if (choice == 1) VacancyMenu.ShowUsersVacanciesMenu(ref db, ref user);
-            else if (choice == 2)
-            {
-
-            }
-            else break;
         }
     }
 
@@ -232,9 +191,9 @@ public static class AllMenues
         else if (choice == 3)//profile
         {
             if (member is Employee)
-                EmployeeProfileMenu(ref db, ref member);
+                EmployeeMenues.EmployeeProfileMenu(ref db, ref member);
             else
-                EmployerProfileMenu(ref db, ref member);
+                EmployerMenues.EmployerProfileMenu(ref db, ref member);
         }
         else if (choice == 4)//notification
             AllNotificatioMenu(db, member);

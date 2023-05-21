@@ -48,6 +48,23 @@
         "Showable": false,
         "ViewCount": 0,
         "Appliers": []
+      },
+      {
+        "EmployerId": "89b2c97e-28f1-41d9-909c-e12da0f083f9",
+        "Id": "efbfbfac-2ee0-4ad9-9b6a-8d1bae95b1c5",
+        "Title": "Sistem adminstratoru",
+        "DownloadDate": "2023-05-21T00:00:00+04:00",
+        "ExpireDate": "2023-06-20T00:00:00+04:00",
+        "Category": {
+          "Id": "091f2b5d-7fa0-4f91-9ebc-aadea0ceb868",
+          "Name": "Fehle"
+        },
+        "Payment": 1200,
+        "Description": "lesijejg sehiorhg",
+        "IsActive": false,
+        "Showable": false,
+        "ViewCount": 0,
+        "Appliers": []
       }
     ],
     "Age": 25,

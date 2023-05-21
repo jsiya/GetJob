@@ -12,8 +12,45 @@
     "Payment": 0,
     "Description": "...........",
     "IsActive": true,
-    "Showable": false,
+    "Showable": true,
     "ViewCount": 0,
     "Appliers": []
+  },
+  {
+    "EmployerId": "89b2c97e-28f1-41d9-909c-e12da0f083f9",
+    "Id": "1b08887b-4af1-4726-98e4-f70b161ee185",
+    "Title": "Sys Admin",
+    "DownloadDate": "2023-05-21T00:00:00+04:00",
+    "ExpireDate": "2023-06-20T00:00:00+04:00",
+    "Category": {
+      "Id": "52905be2-13ec-4029-82d3-1d0b6506ab55",
+      "Name": "Frontend Developer"
+    },
+    "Payment": 800,
+    "Description": "Hefte ici 5 gun",
+    "IsActive": true,
+    "Showable": true,
+    "ViewCount": 0,
+    "Appliers": []
+  },
+  {
+    "EmployerId": "89b2c97e-28f1-41d9-909c-e12da0f083f9",
+    "Id": "efbfbfac-2ee0-4ad9-9b6a-8d1bae95b1c5",
+    "Title": "Sistem adminstratoru",
+    "DownloadDate": "2023-05-21T00:00:00+04:00",
+    "ExpireDate": "2023-06-20T00:00:00+04:00",
+    "Category": {
+      "Id": "091f2b5d-7fa0-4f91-9ebc-aadea0ceb868",
+      "Name": "Fehle"
+    },
+    "Payment": 1200,
+    "Description": "lesijejg sehiorhg",
+    "IsActive": true,
+    "Showable": true,
+    "ViewCount": 0,
+    "Appliers": [
+      "eaa626ef-f2f0-4fb3-8834-c64c80b3433f",
+      "f1a3075e-6c2a-4236-92b7-afab3ec06d75"
+    ]
   }
 ]

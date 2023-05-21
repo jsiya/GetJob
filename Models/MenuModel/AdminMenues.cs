@@ -1,7 +1,4 @@
-﻿using GetJob.Models.AdminModel;
-using GetJob.Models.DB;
-using GetJob.Models.UserModels;
-using GetJob.Models.VacancyModel;
+﻿using GetJob.Models.DB;
 using MenuModel;
 
 namespace GetJob.Models.MenuModel;
@@ -69,6 +66,9 @@ public class AdminMenues
                 break;
             }
             db.DeactiveVacancies.ElementAt(choice-1).IsActive = !db.DeactiveVacancies.ElementAt(choice-1).IsActive;
+            if(db.DeactiveVacancies.ElementAt(choice - 1).IsActive == true)
+                if(db.DeactiveVacancies.ElementAt(choice-1).ExpireDate >  DateTime.Now)
+                    db.DeactiveVacancies.ElementAt(choice - 1).Showable = !db.DeactiveVacancies.ElementAt(choice - 1).Showable;
         }
     }
     public static void ActivateAndDeactivateResumeMenu(ref Database db, ref Member member)
@@ -89,6 +89,8 @@ public class AdminMenues
                 break;
             }
             db.DeactiveResumes.ElementAt(choice - 1).IsActive = !db.DeactiveResumes.ElementAt(choice - 1).IsActive;
+            if (db.DeactiveResumes.ElementAt(choice - 1).IsActive == true)
+                    db.DeactiveResumes.ElementAt(choice - 1).Showable = !db.DeactiveVacancies.ElementAt(choice - 1).Showable;
         }
     }
 }

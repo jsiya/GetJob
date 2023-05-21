@@ -56,7 +56,7 @@ public static class MailSender
 
         MailMessage message = new MailMessage();
         message.From = new MailAddress(fromMail);
-        message.Subject = "Notification!";
+        message.Subject = "GetJob";
         message.To.Add(new MailAddress(EmailAdress));
         message.Body = notification.ToString();
         var smtpClient = new SmtpClient("smtp.gmail.com")

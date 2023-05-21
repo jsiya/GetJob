@@ -165,4 +165,17 @@ public static class Logo
                                                           |/__\|/__\|/__\|/__\|/__\|                                                                                                                                                    
 ");
     }
+
+    public static void ShowCategoryLogo()
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(@"
+                                                 ______      __                        _          
+                                                / ____/___ _/ /____  ____ _____  _____(_)__  _____
+                                               / /   / __ `/ __/ _ \/ __ `/ __ \/ ___/ / _ \/ ___/
+                                              / /___/ /_/ / /_/  __/ /_/ / /_/ / /  / /  __(__  ) 
+                                              \____/\__,_/\__/\___/\__, /\____/_/  /_/\___/____/  
+                                                                  /____/                          
+");
+    }
 }

@@ -9,11 +9,13 @@ public static class CategoryMenues
 {
     public static Category CategoryMenu(List<Category> categories) 
     {
-        List<string> ops = categories.Select(c => c.Name).ToList();
-        ops.Add("<=Back");
+        List<string> ops = new() { "<=back" };
+        ops.AddRange(categories.Select(c => c.Name).ToList());
         Menu categoryMenu = new(ops.ToArray(), 12, Console.LargestWindowHeight);
+        Console.Clear();
+        Logo.ShowCategoryLogo();
         int choice = categoryMenu.RunMenu();
-        if (choice == ops.Count - 10) return new();
+        if (choice == 0) return new();
         Category category = categories[choice];
         return category;
     }
@@ -22,6 +24,7 @@ public static class CategoryMenues
     {
         List<string> ops = categories.Select(c => c.Name).ToList();
         Menu categoryMenu = new(ops.ToArray(), 12, Console.LargestWindowHeight);
+        Logo.ShowCategoryLogo();
         int choice = categoryMenu.RunMenu();
         Category category = categories[choice];
         return category;
@@ -36,7 +39,7 @@ public static class CategoryMenues
         {
             Console.ResetColor();
             Console.Clear();
-            Logo.ShowLogo();
+            Logo.ShowCategoryLogo();
             choice = menu.RunMenu();
             if (choice == 0) CategoryMenu(db.Categories);
 
@@ -56,7 +59,7 @@ public static class CategoryMenues
         {
             Console.ResetColor();
             Console.Clear();
-            Logo.ShowNewResumeLogo();
+            Logo.ShowCategoryLogo();
             menu._menuList[0] = $"Category Name :  {title}";
             choice = menu.RunMenu();
             if (choice == 0)

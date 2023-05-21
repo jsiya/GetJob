@@ -170,4 +170,16 @@ public class Employee : User, IAuth
         }
         return false;
     }
+
+    public override string ToString()
+    {
+        return $@"
+Name: {Name}
+Surname: {Surname}
+Age: {Age}
+City: {City}
+Phone: {Phone}
+Mail: {Mail}
+";
+    }
 }

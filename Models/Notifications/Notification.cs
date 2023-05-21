@@ -16,6 +16,6 @@ public class Notification
     }
     public override string ToString()
     {
-        return $" Action: {Text} \n by{FromUser?.Username}, {NotificationDateTime}";
+        return $" Action: {Text} \n by {FromUser?.Username}, {NotificationDateTime}";
     }
 }

@@ -58,8 +58,8 @@
           "Communication Skills"
         ],
         "ViewCount": 0,
-        "Showable": false,
-        "IsActive": false,
+        "Showable": true,
+        "IsActive": true,
         "Languages": [
           {
             "Key": "English",

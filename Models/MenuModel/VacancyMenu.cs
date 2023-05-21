@@ -62,23 +62,62 @@ public static class VacancyMenu
     }
 
     //butun vakansiyalar
-    public static void AllVacanciesMenu(ref Database db, ref Member user)
+    public static void AllVacanciesMenu(ref Database db, ref Member user) 
     {
-        List<string> users = db.ActiveVacancies.Where(vacancy => vacancy.Showable).Select(vacancy => vacancy.Title).ToList();
-        users.Add("<=Back");
+        List<string> vacs = new() { "<=back" };
+        vacs.AddRange(db.ActiveVacancies.Where(vacancy => vacancy.Showable).Select(vacancy => vacancy.Title).ToList());
 
-        Menu menu = new Menu(users.ToArray(), 12, Console.LargestWindowHeight);
+        Menu menu = new Menu(vacs.ToArray(), 12, Console.LargestWindowHeight);
         int choice;
         while (true)
         {
             Console.Clear();
+            Console.ResetColor();
             Logo.ShowVacanciesLogo();
             choice = menu.RunMenu();
-            if (choice == users.Count - 1) break;
+            if (choice == 0) break;
+            Console.Clear();
+            Console.WriteLine(db.ActiveVacancies.ElementAt(choice - 1).ToString());
+            if (user is Employee)//user gelibse vakansiyaya baxib apply etsin
+            {
+                Console.WriteLine("Do you want to apply?");
+                Menu suggestMenu = new Menu(new string[] { "Yes", "No" }, 12, 20);
+                int choice2 = suggestMenu.RunMenu();
+                if (choice2 == 0)
+                {
+                    //eger user evvel apply olmayibsa apply edir
+                    if(!db.ActiveVacancies.ElementAt(choice - 1).Appliers.Contains(user.Id))
+                    {
+                        db.ActiveVacancies.ElementAt(choice - 1).Appliers.Add(user.Id);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Applied!");
+                        Thread.Sleep(2000);
+                        db.Writer();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("You already aplied to this vacancy!");
+                        Thread.Sleep(2000);
+                    }
+                }
+            }
+            else if(user is Employer)
+            {
+                if(user.Id != db.ActiveVacancies.ElementAt(choice - 1).EmployerId)
+                {
+                    Console.WriteLine("Press any key to return...");
+                    var key = Console.ReadKey();
+                }
+                else
+                {
+                    EmployerMenues.ApplyEmployeeMenu(ref db, ref user, choice - 1);
+                }
+            }
         }
     }
 
-    public static void ShowUsersVacanciesMenu(ref Database db, ref Member user)
+    public static void ShowUsersVacanciesMenu(ref Database db, ref Member user)//employerin oz vakansiyalari
     {
         Console.Clear();
         Logo.ShowVacanciesLogo();
