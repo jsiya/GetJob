@@ -9,10 +9,19 @@ public partial class Database
 {
     private void SortDB()
     {
+        //bu islemir baxis sayina gore sort elemek istiyirdim
         Employees.OrderByDescending(employee => employee.ViewCount);
         Employers.OrderByDescending(employer => employer.ViewCount);
         ActiveResumes.OrderByDescending(resume => resume.ViewCount);
         ActiveVacancies.OrderByDescending(vacancy => vacancy.ViewCount);
+    }
+
+    private void CheckExpireDate()
+    {
+        //Muddeti bitmis vakansiyalari slir
+        ActiveVacancies.RemoveAll(vac=> vac.ExpireDate <  DateTime.Now.Date);
+        DeactiveVacancies.RemoveAll(vac=> vac.ExpireDate <  DateTime.Now.Date);
+        Employers.ForEach(emp => emp.Vacancies.RemoveAll(vac => vac.ExpireDate < DateTime.Now.Date));
     }
     public partial void Reader()
     {
@@ -68,6 +77,7 @@ public partial class Database
     public partial void Writer()
     {
         SortDB();
+        CheckExpireDate();
         JsonSerializerOptions options = new JsonSerializerOptions();
         options.WriteIndented = true;
         if (Admins != null)

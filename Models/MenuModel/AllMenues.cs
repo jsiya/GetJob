@@ -13,7 +13,7 @@ public static class AllMenues
         List<string> users = new() {"<=back" };
         users.AddRange(db.Employers.Select(x => x.Username).ToList());
 
-        Menu menu = new Menu(users.Take(5).ToArray(), 12, Console.LargestWindowHeight);
+        Menu menu = new Menu(users.ToArray(), 12, Console.LargestWindowHeight);
         int choice;
         while (true)
         {
@@ -33,7 +33,7 @@ public static class AllMenues
     {
         List<string> users = new() { "<=back" };
         users.AddRange(db.Employees.Select(x => x.Username).ToList());
-        Menu menu = new Menu(users.Take(5).ToArray(), 12, Console.LargestWindowHeight);
+        Menu menu = new Menu(users.ToArray(), 12, Console.LargestWindowHeight);
         int choice;
         while (true)
         {

@@ -111,9 +111,22 @@ public static class EmployerMenues
     {
         int count = db.ActiveVacancies.ElementAt(index).Appliers.Count;
         List<Employee> employees = new List<Employee>();
-        foreach (var item in db.ActiveVacancies.ElementAt(index).Appliers)
+        //burda yeniden toList yazmagimin sebebi iteraasiya prosesinde modify ede bilirem deye
+        //kopyasinda listi gezib orjinalda deyisilik edirem
+        foreach (var item in db.ActiveVacancies.ElementAt(index).Appliers.ToList())
         {
-            employees.Add(db.Employees.FirstOrDefault(employer => employer.Id == item));
+            try
+            {
+                //eger employeri silmisemse excep atir
+                employees.Add(db.Employees.First(employer => employer.Id == item));
+            }
+            catch(Exception ex)
+            {
+                //employer silinibse vakansiyalara apply edenlerden hemin id-ni silirem ve jsona yeni versiyani yaziram
+                db.ActiveVacancies.ElementAt(index).Appliers.Remove(item);
+                db.Writer();
+                continue;
+            }
         }
         List<string> ops = new() { "<=Back" };
         ops.AddRange(employees.Select(emp => emp.Username).ToList());
@@ -128,6 +141,7 @@ public static class EmployerMenues
             if (choice == 0) break;
             try
             {
+                //eger apply eden employeenin resume-u yoxdusa exception atir varsa baxis sayi artir ve ekrana verilir
                 Console.WriteLine(employees.ElementAt(choice - 1).Resumes.LastOrDefault(cv => cv.Showable == true).ToString());
                 employees.ElementAt(choice - 1).Resumes.LastOrDefault(cv => cv.Showable == true).ViewCount++;
             }
@@ -139,6 +153,7 @@ public static class EmployerMenues
             List<string> ops2 = new() { "Yes", "No" };
             Menu menu2 = new Menu(ops2.ToArray(), 10, Console.LargestWindowHeight);
             int choice2 = menu2.RunMenu();
+            //apply ve ya reject olmasi barede mail gedir
             if (choice2 == 0) MailSender.SendMail(new Notification($"Congratulation {employees.ElementAt(choice - 1).Name}! Your appeal for {db.ActiveVacancies.ElementAt(index).Title} was accepted!", DateTime.Now.ToString(), user), employees.ElementAt(choice - 1).Mail);
             else MailSender.SendMail(new Notification($"Hope you are well {employees.ElementAt(choice - 1).Name}! Unfortunately, your appeal for {db.ActiveVacancies.ElementAt(index).Title} was rejected!", DateTime.Now.ToString(), user), employees.ElementAt(choice - 1).Mail);
         }

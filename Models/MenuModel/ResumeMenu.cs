@@ -6,6 +6,7 @@ namespace GetJob.Models.MenuModel;
 
 public static class ResumeMenu
 {
+    //dil ve dil seviyyesi
     public static void LanguageMenu( ref List<KeyValuePair<string, LanguageLevelInfo>> languages)
     {
         string language = "";
@@ -55,19 +56,30 @@ public static class ResumeMenu
             choice = menu.RunMenu();
             if (choice == 0)
             {
-                Console.SetCursorPosition(40, 10);
-                while(profession.Length == 0) profession = Console.ReadLine();
+                profession = "";
+                while (profession.Length == 0)
+                {
+                    Console.SetCursorPosition(40, 10); 
+                    profession = Console.ReadLine();
+                }
             }
             else if (choice == 1)
             {
-                Console.SetCursorPosition(33, 11);
-                while (linkedin.Length == 0) linkedin = Console.ReadLine();
+                linkedin = "";
+                while (linkedin.Length == 0)
+                {
+                    Console.SetCursorPosition(33, 11);
+                    linkedin = Console.ReadLine();
+                }
             }
             else if (choice == 2)
             {
-                Console.SetCursorPosition(33, 12);
                 string edu = "";
-                while (edu.Length == 0) edu = Console.ReadLine();
+                while (edu.Length == 0)
+                {
+                    Console.SetCursorPosition(33, 12); 
+                    edu = Console.ReadLine();
+                }
                     educations.Add(edu);
             }
             else if (choice == 3)
@@ -77,9 +89,12 @@ public static class ResumeMenu
             }
             else if (choice == 4)
             {
-                Console.SetCursorPosition(33, 14);
                 string certificate = "";
-                while (certificate.Length == 0) certificate = Console.ReadLine();
+                while (certificate.Length == 0)
+                {
+                    Console.SetCursorPosition(33, 14); 
+                    certificate = Console.ReadLine();
+                }
                 certificates.Add(certificate);
             }
             else if (choice == 5)

@@ -7,6 +7,7 @@ namespace GetJob.Models.MenuModel;
 
 public static class CategoryMenues
 {
+    //admin categorylere baxsin deye
     public static Category CategoryMenu(List<Category> categories) 
     {
         List<string> ops = new() { "<=back" };
@@ -20,17 +21,20 @@ public static class CategoryMenues
         return category;
     }
 
+    //vakansiya yaratdiqda uygun vakansiya secim menyusu
     public static Category CategoryOptions(List<Category> categories)
     {
         List<string> ops = categories.Select(c => c.Name).ToList();
         Menu categoryMenu = new(ops.ToArray(), 12, Console.LargestWindowHeight);
+        Console.Clear();
         Logo.ShowCategoryLogo();
         int choice = categoryMenu.RunMenu();
         Category category = categories[choice];
         return category;
     }
 
-    public static void Categories(ref Database db, ref Member member)  //admin ucun olan
+    //admin baxsin ve ya yaratsin
+    public static void Categories(ref Database db, ref Member member) 
     {
         List<string> options = new() { "All Category", "<<Create New>>", "<==Back" };
         Menu menu = new(options.ToArray(), 12, Console.LargestWindowHeight);
@@ -49,6 +53,7 @@ public static class CategoryMenues
         }
     }
 
+    //admin ucun yeni category yaratma
     public static void CreateCategoryMenu(ref Database db, ref Member member)
     {
         string title = "";
@@ -64,10 +69,13 @@ public static class CategoryMenues
             choice = menu.RunMenu();
             if (choice == 0)
             {
-                Console.SetCursorPosition(75, 12);
-                while (title.Length == 0) title = Console.ReadLine();
+                while (title.Length == 0) 
+                {
+                    Console.SetCursorPosition(75, 12); 
+                    title = Console.ReadLine();
+                }
             }
-            else if (choice == 1)
+            else if (choice == 1)//create secende
             {
                 Admin employer = member as Admin;
                 Category category = new Category(title);
@@ -75,6 +83,7 @@ public static class CategoryMenues
                 db.Writer();
                 break;
             }
+            //yaratmadan geri qayitma
             if (choice == 2) break;
         }
     }

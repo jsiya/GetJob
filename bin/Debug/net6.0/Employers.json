@@ -6,7 +6,7 @@
     "Surname": "Ibrahimov",
     "City": "",
     "Phone": "0552005004",
-    "ViewCount": 1,
+    "ViewCount": 2,
     "Notifications": [],
     "Id": "b31190ea-82b9-4d45-81d3-689fc69078e5",
     "Mail": "aliibrah30@gmail.com",
@@ -31,6 +31,23 @@
         "Showable": true,
         "ViewCount": 0,
         "Appliers": []
+      },
+      {
+        "EmployerId": "997f7d48-2302-4e52-aeaa-623a397b81f4",
+        "Id": "2a882adb-fb78-42e8-a8d1-eb8b595a8ff2",
+        "Title": "ewrgbetfdsd",
+        "DownloadDate": "2023-05-23T00:00:00+04:00",
+        "ExpireDate": "2023-06-22T00:00:00+04:00",
+        "Category": {
+          "Id": "1c0912b5-1678-4f1c-aa0a-c74ad03bdc14",
+          "Name": "Graphic Designer"
+        },
+        "Payment": 1234,
+        "Description": "wqefrgberfwd",
+        "IsActive": true,
+        "Showable": true,
+        "ViewCount": 0,
+        "Appliers": []
       }
     ],
     "Age": 21,
@@ -38,7 +55,7 @@
     "Surname": "Cabbarova",
     "City": "",
     "Phone": "0501234567",
-    "ViewCount": 0,
+    "ViewCount": 1,
     "Notifications": [
       {
         "Id": "94fd935c-9d39-4c3c-b4bd-31374eab94bf",
@@ -61,11 +78,54 @@
           "Username": "siyacabbar",
           "Password": "Siya123@"
         }
+      },
+      {
+        "Id": "e449a261-247c-4f80-91d0-c2395f645209",
+        "Text": "New Vacancy Created!",
+        "NotificationDateTime": "5/23/2023 4:27:27 PM",
+        "FromUser": {
+          "Id": "997f7d48-2302-4e52-aeaa-623a397b81f4",
+          "Mail": "siajabbarova@gmail.com",
+          "Username": "siyacabbar",
+          "Password": "Siya123@"
+        }
       }
     ],
     "Id": "997f7d48-2302-4e52-aeaa-623a397b81f4",
     "Mail": "siajabbarova@gmail.com",
     "Username": "siyacabbar",
     "Password": "Siya123@"
+  },
+  {
+    "Vacancies": [
+      {
+        "EmployerId": "fdc73733-d176-4235-9dd8-48ad350ad0f2",
+        "Id": "88e5aff1-576d-4339-bdba-dea338c7a9d1",
+        "Title": "Python dev",
+        "DownloadDate": "2023-05-23T00:00:00+04:00",
+        "ExpireDate": "2023-06-22T00:00:00+04:00",
+        "Category": {
+          "Id": "52905be2-13ec-4029-82d3-1d0b6506ab55",
+          "Name": "Frontend Developer"
+        },
+        "Payment": 45678,
+        "Description": "adsfcbgfqe",
+        "IsActive": true,
+        "Showable": true,
+        "ViewCount": 0,
+        "Appliers": []
+      }
+    ],
+    "Age": 34,
+    "Name": "Test",
+    "Surname": "Tesy",
+    "City": "",
+    "Phone": "0501232323",
+    "ViewCount": 0,
+    "Notifications": [],
+    "Id": "fdc73733-d176-4235-9dd8-48ad350ad0f2",
+    "Mail": "siajabbarova@gmail.com",
+    "Username": "test1234",
+    "Password": "Test123@"
   }
 ]

@@ -29,15 +29,23 @@ public static class VacancyMenu
             choice = menu.RunMenu();
             if (choice == 0)
             {
-                Console.SetCursorPosition(40, 10);
+                
                 title = "";
-                while (title.Length == 0) title = Console.ReadLine();
+                while (title.Length == 0) 
+                {
+                    Console.SetCursorPosition(40, 10); 
+                    title = Console.ReadLine();
+                }
             }
             else if (choice == 1)
             {
                 description = "";
-                Console.SetCursorPosition(40, 11);
-                while (description.Length == 0) description = Console.ReadLine();
+                
+                while (description.Length == 0)
+                {
+                    Console.SetCursorPosition(40, 11); 
+                    description = Console.ReadLine();
+                }
             }
             else if (choice == 2)
             {
@@ -52,6 +60,7 @@ public static class VacancyMenu
             else if (choice == 4)
             {
                 Employer employer = user as Employer;
+                //vakansiya yaranan kimi hem employere hem de deactive vakansiyalara elave olunur
                 Vacancy vacancy = new Vacancy(employer.Id, DateTime.Now.Date, DateTime.Now.Date.AddDays(30), category, payment, description, title);
                 employer.Vacancies.Add(vacancy);
                 db.DeactiveVacancies.Add(vacancy);
@@ -80,7 +89,7 @@ public static class VacancyMenu
             if (choice == 0) break;
             Console.Clear();
             Console.WriteLine(db.ActiveVacancies.ElementAt(choice - 1).ToString());
-            if (user is Employee)//user gelibse vakansiyaya baxib apply etsin
+            if (user is Employee)//employee gelibse vakansiyaya baxib apply etsin
             {
                 Console.WriteLine("Do you want to apply?");
                 Menu suggestMenu = new Menu(new string[] { "Yes", "No" }, 12, 20);
@@ -88,7 +97,7 @@ public static class VacancyMenu
                 if (choice2 == 0)
                 {
                     db.ActiveVacancies.ElementAt(choice - 1).ViewCount++;
-                    //eger user evvel apply olmayibsa apply edir
+                    //eger employee evvel apply olmayibsa apply edir
                     if (!db.ActiveVacancies.ElementAt(choice - 1).Appliers.Contains(user.Id))
                     {
                         db.ActiveVacancies.ElementAt(choice - 1).Appliers.Add(user.Id);
@@ -107,14 +116,18 @@ public static class VacancyMenu
             }
             else if(user is Employer)
             {
+                //daxil olan employerdise ve vakansiyanin sahibidirse apply edenlere baxsin
+                //basqa employerdirse ancaq vakansiyaya baxib qayida biler
                 if(user.Id != db.ActiveVacancies.ElementAt(choice - 1).EmployerId)
                 {
+                    //basqa employerdise
                     Console.WriteLine("Press any key to return...");
                     db.ActiveVacancies.ElementAt(choice - 1).ViewCount++;
                     var key = Console.ReadKey();
                 }
                 else
                 {
+                    //vakansiya ozununduse
                     EmployerMenues.ApplyEmployeeMenu(ref db, ref user, choice - 1);
                 }
             }
@@ -140,6 +153,7 @@ public static class VacancyMenu
         }
     }
 
+    //admin active ve deactive edibse ona uygun json filelarina yazilir
     public static void TransferVacancies(ref Database db)
     {
         db.ActiveVacancies.AddRange(db.DeactiveVacancies.Where(vacancy => vacancy.IsActive == true));

@@ -29,5 +29,64 @@
         }
       }
     ]
+  },
+  {
+    "Id": "81eece91-8188-46fa-aecc-47b46c818e8a",
+    "EmployeeId": "cba648d3-ffac-4546-8166-3fc36fd78c1b",
+    "Profession": ".NET Developer",
+    "UserName": "Natiq Askerov",
+    "LinkedIn": "natiqasgerov",
+    "Education": [
+      "STEP IT"
+    ],
+    "Skills": [
+      "Music",
+      "Music"
+    ],
+    "ViewCount": 1,
+    "Showable": true,
+    "IsActive": true,
+    "Languages": [
+      {
+        "Key": "Azeri",
+        "Value": 0
+      }
+    ],
+    "Certificates": [
+      "Microsoft Imagine Acedemy"
+    ],
+    "Experiences": [
+      {
+        "Key": {
+          "Key": "Step",
+          "Value": "Product Manager"
+        },
+        "Value": {
+          "Key": "2020",
+          "Value": "2024"
+        }
+      }
+    ]
+  },
+  {
+    "Id": "f7a44a13-49bd-406b-b7aa-ef7f52d9d4af",
+    "EmployeeId": "f1a3075e-6c2a-4236-92b7-afab3ec06d75",
+    "Profession": "Software Developer",
+    "UserName": "siya cabbarova",
+    "LinkedIn": "//linkkkkkkkkkkk",
+    "Education": [
+      "BSU Computer Science",
+      "IT Step Software Development"
+    ],
+    "Skills": [
+      "Communication",
+      "Problem Solving"
+    ],
+    "ViewCount": 0,
+    "Showable": false,
+    "IsActive": true,
+    "Languages": [],
+    "Certificates": [],
+    "Experiences": []
   }
 ]
