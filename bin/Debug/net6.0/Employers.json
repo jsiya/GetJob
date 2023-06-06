@@ -127,5 +127,51 @@
     "Mail": "siajabbarova@gmail.com",
     "Username": "test1234",
     "Password": "Test123@"
+  },
+  {
+    "Vacancies": [
+      {
+        "EmployerId": "5f256b74-7bf4-42cb-9aa6-8386076f5f3a",
+        "Id": "c6b5ea5c-4aeb-4d9c-a460-6790d605c308",
+        "Title": "wfegrt",
+        "DownloadDate": "2023-05-31T00:00:00+04:00",
+        "ExpireDate": "2023-06-30T00:00:00+04:00",
+        "Category": {
+          "Id": "1c0912b5-1678-4f1c-aa0a-c74ad03bdc14",
+          "Name": "Graphic Designer"
+        },
+        "Payment": 123,
+        "Description": "etbrt",
+        "IsActive": true,
+        "Showable": true,
+        "ViewCount": 1,
+        "Appliers": [
+          "dd543e2f-d1f5-40b3-abc3-8e3f832d6dc5"
+        ]
+      }
+    ],
+    "Age": 21,
+    "Name": "Siya",
+    "Surname": "Cabbarova",
+    "City": "",
+    "Phone": "0701234567",
+    "ViewCount": 0,
+    "Notifications": [
+      {
+        "Id": "a0c71387-d391-4a3a-a29f-0923d011131d",
+        "Text": "New Vacancy Created!",
+        "NotificationDateTime": "5/31/2023 7:02:47 PM",
+        "FromUser": {
+          "Id": "5f256b74-7bf4-42cb-9aa6-8386076f5f3a",
+          "Mail": "siajabbarova@gmail.com",
+          "Username": "salam123",
+          "Password": "Salam123@"
+        }
+      }
+    ],
+    "Id": "5f256b74-7bf4-42cb-9aa6-8386076f5f3a",
+    "Mail": "siajabbarova@gmail.com",
+    "Username": "salam123",
+    "Password": "Salam123@"
   }
 ]

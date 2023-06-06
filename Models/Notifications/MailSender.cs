@@ -7,8 +7,8 @@ public static class MailSender
 {
     public static bool MailVarification(string email)
     {
-        string fromMail = "uselessmailaddress1221@gmail.com";
-        string fromPassword = "xddgklkwtuffurlk";
+        string fromMail = "";
+        string fromPassword = "";
 
         while (true)
         {

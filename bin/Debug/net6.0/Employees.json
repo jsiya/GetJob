@@ -59,7 +59,7 @@
     "Surname": "cabbarova",
     "City": "",
     "Phone": "0708704747",
-    "ViewCount": 8,
+    "ViewCount": 9,
     "Notifications": [
       {
         "Id": "15ba9d1a-1b6a-4648-971a-64c781612258",
@@ -77,5 +77,19 @@
     "Mail": "jabbarovasia@gmail.com",
     "Username": "jassyaaa",
     "Password": "Salam123*"
+  },
+  {
+    "Resumes": [],
+    "Age": 21,
+    "Name": "Qwert",
+    "Surname": "Qwert",
+    "City": "",
+    "Phone": "0701234567",
+    "ViewCount": 0,
+    "Notifications": [],
+    "Id": "dd543e2f-d1f5-40b3-abc3-8e3f832d6dc5",
+    "Mail": "siajabbarova@gmail.com",
+    "Username": "salam321",
+    "Password": "Salam123@"
   }
 ]

@@ -13,7 +13,7 @@
     "Description": "Hefte ici 5 gun",
     "IsActive": true,
     "Showable": true,
-    "ViewCount": 1,
+    "ViewCount": 2,
     "Appliers": [
       "f1a3075e-6c2a-4236-92b7-afab3ec06d75"
     ]
@@ -32,7 +32,7 @@
     "Description": "We are looking for blah blah blah....",
     "IsActive": true,
     "Showable": true,
-    "ViewCount": 3,
+    "ViewCount": 4,
     "Appliers": [
       "f1a3075e-6c2a-4236-92b7-afab3ec06d75"
     ]
@@ -51,7 +51,26 @@
     "Description": "wqefrgberfwd",
     "IsActive": true,
     "Showable": true,
-    "ViewCount": 0,
+    "ViewCount": 1,
     "Appliers": []
+  },
+  {
+    "EmployerId": "5f256b74-7bf4-42cb-9aa6-8386076f5f3a",
+    "Id": "c6b5ea5c-4aeb-4d9c-a460-6790d605c308",
+    "Title": "wfegrt",
+    "DownloadDate": "2023-05-31T00:00:00+04:00",
+    "ExpireDate": "2023-06-30T00:00:00+04:00",
+    "Category": {
+      "Id": "1c0912b5-1678-4f1c-aa0a-c74ad03bdc14",
+      "Name": "Graphic Designer"
+    },
+    "Payment": 123,
+    "Description": "etbrt",
+    "IsActive": true,
+    "Showable": true,
+    "ViewCount": 1,
+    "Appliers": [
+      "dd543e2f-d1f5-40b3-abc3-8e3f832d6dc5"
+    ]
   }
 ]
